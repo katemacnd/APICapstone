@@ -28,7 +28,7 @@ function watchForm() {
 
   $('.dropbtn').onclick(event => {
     event.preventDefault();
-    myFunction();
+    // myFunction();
     console.log("Handler for .onclick() called.");
     // const searchTerm = $('#js-search-term').val();
     // const maxResults = $('#js-max-results').val();
@@ -39,20 +39,23 @@ function watchForm() {
 $(watchForm);
 
 });
-// onclick dropdown
-// hide headline1
-// unhide headline2
-// populate "my ____ Needs" with dropdown choice
-// create search bar line
-// create search button
-// onclick search button
-// hide headline2
-// unhide headline3
-// Fetch
-  // Item Picture
-  // Item name
-  // Stars/Ratings
-  // Top Comment
-    // expand description functionality
-  // link to the ebay page to purchase
-// new search button
+
+
+// pseudocode untouched
+  // onclick dropdown
+  // hide headline1
+  // unhide headline2
+  // populate "my ____ Needs" with dropdown choice
+  // create search bar line
+  // create search button
+  // onclick search button
+  // hide headline2
+  // unhide headline3
+  // Fetch
+    // Item Picture
+    // Item name
+    // Stars/Ratings
+    // Top Comment
+      // expand description functionality
+    // link to the ebay page to purchase
+  // new search button
