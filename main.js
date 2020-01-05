@@ -1,9 +1,7 @@
 /*jshint esversion: 6 */
 
-'use strict';
-
 $(document).ready(function () {
-// 
+  'use strict';
 // /* When the user clicks on the button,
 // toggle between hiding and showing the dropdown content */
 // function myFunction() {
@@ -26,19 +24,17 @@ $(document).ready(function () {
 
 // watch form
 function watchForm() {
-$('.dropbtn').onclick(event => {
-  event.preventDefault();
-  myFunction();
-  console.log("Handler for .change() called.");
-  // const searchTerm = $('#js-search-term').val();
-  // const maxResults = $('#js-max-results').val();
-  // getYouTubeVideos(searchTerm, maxResults);
-});
-}
+  console.log("JavaScript Loaded!");
 
-$(function() {
-  alert( 'JavaScript Loaded!' );
-});
+  $('.dropbtn').onclick(event => {
+    event.preventDefault();
+    myFunction();
+    console.log("Handler for .onclick() called.");
+    // const searchTerm = $('#js-search-term').val();
+    // const maxResults = $('#js-max-results').val();
+    // getYouTubeVideos(searchTerm, maxResults);
+  });
+}
 
 $(watchForm);
 
