@@ -1,12 +1,9 @@
+// https://developer.ebay.com/Devzone/finding/Concepts/FindingAPIGuide.html#usekeywords
 /*jshint esversion: 6 */
 
 $(document).ready(function () {
   'use strict';
-// /* When the user clicks on the button,
-// toggle between hiding and showing the dropdown content */
-// function myFunction() {
-// document.getElementById("myDropdown").classList.toggle("show");
-// }
+
 //
 // // Close the dropdown menu if the user clicks outside of it
 // window.onclick = function(event) {
@@ -22,21 +19,36 @@ $(document).ready(function () {
 // }
 // };
 
-// watch form
-function watchForm() {
-  console.log("JavaScript Loaded!");
+function showResults() {
+  $('#results').toggle('hidden');
 
-  $('.dropbtn').onclick(event => {
+}
+
+function watchForm() {
+  $('#searchInput').click(event => {
     event.preventDefault();
-    // myFunction();
-    console.log("Handler for .onclick() called.");
-    // const searchTerm = $('#js-search-term').val();
-    // const maxResults = $('#js-max-results').val();
-    // getYouTubeVideos(searchTerm, maxResults);
+    const searchTerms=($('#searchTerms').val());
+    console.log(searchTerms);
+    $('#searchBar').toggle('hidden');
+    $(showResults);
   });
 }
 
-$(watchForm);
+
+function watchDrop() {
+  $('.dropdownOptions').click(event => {
+    event.preventDefault();
+    const animalSelection=(event.target);
+    const animalClicked=$(animalSelection).text();
+    $('.dropBtn').hide();
+    $('#neededAnimal').hide();
+    $('#selectedAnimal').append(animalClicked + "?");
+    $('#searchBar').toggle('hidden');
+    $(watchForm);
+    });
+  }
+
+ $(watchDrop);
 
 });
 
