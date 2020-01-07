@@ -34,7 +34,6 @@ function watchForm() {
   });
 }
 
-
 function watchDrop() {
   $('.dropdownOptions').click(event => {
     event.preventDefault();
@@ -54,14 +53,6 @@ function watchDrop() {
 
 
 // pseudocode untouched
-  // onclick dropdown
-  // hide headline1
-  // unhide headline2
-  // populate "my ____ Needs" with dropdown choice
-  // create search bar line
-  // create search button
-  // onclick search button
-  // hide headline2
   // unhide headline3
   // Fetch
     // Item Picture
