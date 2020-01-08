@@ -19,33 +19,40 @@ $(document).ready(function () {
 // }
 // };
 
-function showResults() {
-  $('#results').toggle('hidden');
+  function watchForm() {
+    $('#searchInput').click(event => {
+      event.preventDefault();
+      const searchTerms=($('#searchTerms').val());
+        console.log(searchTerms);
+      $('#searchBar').toggle('hidden');
+      let appID = 'Katherin-APICapst-PRD-c82b90351-fbc84e5e';
+      let url = `https://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=${appID}&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&keywords=${searchTerms}`;
+        console.log(url);
+      fetch(url).then((response) => {
+        let data = response.json();
+        data.forEach((subData => {
+          let pargraph = document.createElement('p');
+          paragraph.innerText = subData.itemName;
+      //     let image =
+      //     let price =)
 
-}
-
-function watchForm() {
-  $('#searchInput').click(event => {
-    event.preventDefault();
-    const searchTerms=($('#searchTerms').val());
-    console.log(searchTerms);
-    $('#searchBar').toggle('hidden');
-    $(showResults);
+      }));
+    });
   });
 }
 
-function watchDrop() {
-  $('.dropdownOptions').click(event => {
-    event.preventDefault();
-    const animalSelection=(event.target);
-    const animalClicked=$(animalSelection).text();
-    $('.dropBtn').hide();
-    $('#neededAnimal').hide();
-    $('#selectedAnimal').append(animalClicked + "?");
-    $('#searchBar').toggle('hidden');
-    $(watchForm);
-    });
-  }
+  function watchDrop() {
+    $('.dropdownOptions').click(event => {
+      event.preventDefault();
+      const animalSelection=(event.target);
+      const animalClicked=$(animalSelection).text();
+      $('.dropBtn').hide();
+      $('#neededAnimal').hide();
+      $('#selectedAnimal').append(animalClicked + "?");
+      $('#searchBar').toggle('hidden');
+      $(watchForm);
+      });
+    }
 
  $(watchDrop);
 
