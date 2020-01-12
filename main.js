@@ -14,12 +14,17 @@ $(document).ready(function () {
       let url = `https://cors-anywhere.herokuapp.com/http://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=${appID}&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&keywords=${searchTerms}`;
         console.log(url);
       fetch(url).then((response) => {
-        let data = response.json();
-        data.forEach((subData) => {
-          let paragraph = document.createElement('p');
-          paragraph.innerText = subData.itemName;
-        });
-      });
+         if(!response.ok){
+         console.log("error");
+        }
+         return response.json();
+        }).then((data) => {
+    data.forEach((subData) => {
+            let paragraph = document.createElement('p');
+            paragraph.innerText = subData.itemName;
+          });
+  });
+
       // let xhr = new XMLHttpRequest();
       //   xhr.open('GET', url);
       //   xhr.onreadystatechange = function() {
