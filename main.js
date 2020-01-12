@@ -19,7 +19,7 @@ $(document).ready(function () {
         }
          return response.json();
         }).then((data) => {
-    data.forEach((subData) => {
+          data.findItemsByKeywordsResponse.forEach((subData) => {
             let paragraph = document.createElement('p');
             paragraph.innerText = subData.itemName;
           });
