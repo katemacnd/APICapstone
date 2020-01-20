@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-  <div id="content">
+  <div id="mainContent">
     <h1 class="headline1">Providing All Your Small Farm Needs!</h1>
     <section>
       <section id="neededAnimal">I need something for my...
@@ -42,7 +42,18 @@
         <div>Here are your results!</div>
         <button type="button" id="newSearch">New Search</button>
       </section>
-    </section>
+  </div>
+  <div id="navBottom">
+      <section id="goodreads">
+        <div id="lowerBar">Want to read up on your farm questions?
+        <button type="button" id="readUp">Book Search</button>
+        </div>
+        <div class="bookSearch hidden">
+          <input type="text" name="searchBar" id="bookSearchTerms" placeholder="Search..">
+          <button type="submit" id="bookSearchTermsButton"><i class="fa fa-search"></i></button>
+          <div id="bookResults"></div>
+        </div>
+      </section>
   </div>
 </body>
 </html>

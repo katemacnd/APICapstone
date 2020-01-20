@@ -4,13 +4,16 @@
 $(document).ready(function () {
   'use strict';
 
+
+/// ebay API
   function newSearch() {
     $('#newSearch').click(event => {
       event.preventDefault();
       console.log('new search!');
       $('#searchBar').toggle('hidden');
       $('#finalScreen').toggle('hidden');
-  });}
+    });
+  }
 
   function watchForm() {
     $('#searchInput').click(event => {
@@ -78,9 +81,73 @@ $(document).ready(function () {
       $(watchForm);
       });
     }
-   $(watchDrop);
-});
+  $(watchDrop);
 
+// eBAY API
+// Goodreads API
+
+function watchBook() {
+  $('#bookSearchTermsButton').click(event => {
+    event.preventDefault();
+    const searchTerms=($('#bookSearchTerms').val());
+      console.log(searchTerms);
+    $('#bookSearchTerms').toggle('hidden');
+    let appID = 'CiGujFcIajhkPUPGHkeNg';
+    // https://www.goodreads.com/book/title.xml?author=Arthur+Conan+Doyle&key=CiGujFcIajhkPUPGHkeNg&title=Hound+of+the+Baskervilles
+    let url = `https://cors-anywhere.herokuapp.com/http://www.goodreads.com/book/title.xml?title=${searchTerms}&key=${appID}`;
+      console.log(url);
+    let xhr = new XMLHttpRequest();
+      xhr.open('GET', url);
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState !== 4) return;
+        if (xhr.status === 200) {
+
+            var parseXml;
+
+              if (typeof window.DOMParser != "undefined") {
+                  parseXml = function(xmlStr) {
+                      return ( new window.DOMParser() ).parseFromString(xmlStr, "text/xml");
+                  };
+              } else if (typeof window.ActiveXObject != "undefined" &&
+                     new window.ActiveXObject("Microsoft.XMLDOM")) {
+                  parseXml = function(xmlStr) {
+                      var xmlDoc = new window.ActiveXObject("Microsoft.XMLDOM");
+                      xmlDoc.async = "false";
+                      xmlDoc.loadXML(xmlStr);
+                      return xmlDoc;
+                  };
+              } else {
+                  throw new Error("No XML parser found");
+              }
+
+            let data = xhr.responseText;
+            console.log(data);
+            var xmlDoc = parseXml(data);
+            for(let i = 0; i < 5; i++){
+               var z = document.createElement("P");
+                   var title = document.createTextNode(xmlDoc.getElementsByTagName("title")[i].childNodes[0].nodeValue);
+                     z.appendChild(title);
+                  document.getElementById("bookResults").appendChild(z);
+            }
+        }
+      };
+    xhr.send();
+  });
+}
+
+  function watchSearch() {
+    $('#readUp').click(event => {
+      event.preventDefault();
+      $('#mainContent').toggle('hidden');
+      $('#lowerBar').toggle('hidden');
+      $('.bookSearch').toggle('hidden');
+      $(watchBook);
+    });
+  }
+
+  $(watchSearch);
+
+});
 
 // pseudocode untouched --
   // add linebreaks to results information

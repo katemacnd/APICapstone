@@ -13,7 +13,14 @@ h1 {
   font-size: 30px;
 }
 
-#content {
+#lowerBar {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background: darkolivegreen;
+}
+
+#mainContent {
   margin: auto;
   background: darkolivegreen;
   width: 60%;
