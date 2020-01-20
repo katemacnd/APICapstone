@@ -20,7 +20,7 @@ $(document).ready(function () {
         xhr.onreadystatechange = function() {
           if (xhr.readyState !== 4) return;
           if (xhr.status === 200) {
-              //// parser experiment
+
               var parseXml;
 
                 if (typeof window.DOMParser != "undefined") {
@@ -42,12 +42,12 @@ $(document).ready(function () {
               let data = xhr.responseText;
               console.log(data);
               var xmlDoc = parseXml(data);
-              document.body.innerHTML = xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue;
-////
+              $('#results').toggle('hidden');
 
-          //   let paragraph = document.createElement('p');
-          //   paragraph.innerText = txt;
-          // }
+                var x = document.createElement("P");                                                               // Create a <p> element
+                var t = document.createTextNode(xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue);    // Create a text node
+                x.appendChild(t);                                                                                  // Append the text to <p>
+                document.body.appendChild(x);                                                                       // Append <p> to <body>
           }
         };
       xhr.send();
