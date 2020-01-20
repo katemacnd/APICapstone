@@ -12,6 +12,7 @@ $(document).ready(function () {
       console.log('new search!');
       $('#searchBar').toggle('hidden');
       $('#finalScreen').toggle('hidden');
+      document.getElementById("results").innerHTML = "";
     });
   }
 
@@ -86,14 +87,24 @@ $(document).ready(function () {
 // eBAY API
 // Goodreads API
 
+function newBookSearch() {
+  $('#newBookSearch').click(event => {
+    event.preventDefault();
+    console.log('new search!');
+    document.getElementById("bookResults").innerHTML = "";
+    $('#newBookSearch').toggle('hidden');
+    $('#bookSearchTerms').toggle('hidden');
+  });
+}
+
 function watchBook() {
   $('#bookSearchTermsButton').click(event => {
     event.preventDefault();
     const searchTerms=($('#bookSearchTerms').val());
       console.log(searchTerms);
     $('#bookSearchTerms').toggle('hidden');
+    $('#newBookSearch').toggle('hidden');
     let appID = 'CiGujFcIajhkPUPGHkeNg';
-    // https://www.goodreads.com/book/title.xml?author=Arthur+Conan+Doyle&key=CiGujFcIajhkPUPGHkeNg&title=Hound+of+the+Baskervilles
     let url = `https://cors-anywhere.herokuapp.com/http://www.goodreads.com/book/title.xml?title=${searchTerms}&key=${appID}`;
       console.log(url);
     let xhr = new XMLHttpRequest();
@@ -132,6 +143,7 @@ function watchBook() {
         }
       };
     xhr.send();
+    $(newBookSearch);
   });
 }
 
