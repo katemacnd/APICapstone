@@ -1,15 +1,26 @@
 body {
   text-align: center;
-  font-size: 40px;
   background: url('https://libreshot.com/wp-content/uploads/2019/08/green-field-861x537.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+* {
+  font-size: 30px;
 }
 
 #content {
   margin: auto;
   background: darkolivegreen;
   width: 60%;
+}
+
+p {
+  background-color: lightgrey;
 }
 
 .hidden {

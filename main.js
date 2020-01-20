@@ -4,7 +4,13 @@
 $(document).ready(function () {
   'use strict';
 
-// targetting specific element
+  function newSearch() {
+    $('#newSearch').click(event => {
+      event.preventDefault();
+      console.log('new search!');
+      $('#searchBar').toggle('hidden');
+      $('#finalScreen').toggle('hidden');
+  });}
 
   function watchForm() {
     $('#searchInput').click(event => {
@@ -42,15 +48,21 @@ $(document).ready(function () {
               let data = xhr.responseText;
               console.log(data);
               var xmlDoc = parseXml(data);
-              $('#results').toggle('hidden');
-
-                var x = document.createElement("P");                                                               // Create a <p> element
-                var t = document.createTextNode(xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue);    // Create a text node
-                x.appendChild(t);                                                                                  // Append the text to <p>
-                document.body.appendChild(x);                                                                       // Append <p> to <body>
+              $('#finalScreen').toggle('hidden');
+              for(let i = 0; i < 5; i++){
+                 var x = document.createElement("P");
+                     // var picture = document.createTextNode(xmlDoc.getElementsByTagName("galleryURL")[i].childNodes[0].nodeValue);
+                     //   x.appendChild(`<a href=${'picture'}></a>`);
+                     var title = document.createTextNode(xmlDoc.getElementsByTagName("title")[i].childNodes[0].nodeValue);
+                       x.appendChild(title);
+                     var price = document.createTextNode(xmlDoc.getElementsByTagName("convertedCurrentPrice")[i].childNodes[0].nodeValue);
+                       x.appendChild(price);
+                    document.getElementById("results").appendChild(x);
+              }
           }
         };
       xhr.send();
+      $(newSearch);
       });
     }
 
@@ -71,14 +83,12 @@ $(document).ready(function () {
 
 
 // pseudocode untouched --
-  // unhide headline3
+  // add linebreaks to results information
   // Display
     // Item Picture
-    // Item name
     // Stars/Ratings
     // Top Comment
       // expand description functionality
     // link to the ebay page to purchase
-  // "new search" button
   // Close the dropdown menu if the user clicks outside of it
   // add music while you shop
