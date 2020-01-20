@@ -11,36 +11,36 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-  <h1 class="headline1">Find All Your Small Farm Needs!</h1>
-  <h1 class="headline2" hidden>My ____ Needs</h1>
-  <h1 class="headline3" hidden>Results for your ____</h1>
-  <section>
-    <section id="neededAnimal">I need somethin for my...
-      <div class="dropBtn">
-        <button class="dropButton" onclick="dropDown()">Animal Type</button>
-          <script>
-              function dropDown() {
-                document.getElementById("myDropdown").classList.toggle("hidden")
-                ;
-              };
-          </script>
-        <div id="myDropdown" class="dropdown-content hidden">
-          <a href="#" class="dropdownOptions" id="option1">Pig</a>
-          <a href="#" class="dropdownOptions" id="option2">Horse</a>
-          <a href="#" class="dropdownOptions" id="option3">Llama</a>
+  <div id="content">
+    <h1 class="headline1">Providing All Your Small Farm Needs!</h1>
+    <section>
+      <section id="neededAnimal">I need something for my...
+        <div class="dropBtn">
+          <button class="dropButton" onclick="dropDown()">Animal Type</button>
+            <script>
+                function dropDown() {
+                  document.getElementById("myDropdown").classList.toggle("hidden")
+                  ;
+                };
+            </script>
+          <div id="myDropdown" class="dropdown-content hidden">
+            <a href="#" class="dropdownOptions" id="option1">Pig</a>
+            <a href="#" class="dropdownOptions" id="option2">Horse</a>
+            <a href="#" class="dropdownOptions" id="option3">Llama</a>
+          </div>
         </div>
-      </div>
+      </section>
+      <section id="searchBar" class="hidden">
+        <textarea id="selectedAnimal">What do you need for your </textarea>
+        <div class="search">
+          <input type="text" name="searchBar" id="searchTerms" placeholder="Search..">
+          <button type="submit" id="searchInput"><i class="fa fa-search"></i></button>
+        </div>
+      </section>
+      <section id="results" class="hidden">
+        Here are your results!
+      </section>
     </section>
-    <section id="searchBar" class="hidden">
-      <textarea id="selectedAnimal">What do you need for your </textarea>
-      <div class="search">
-        <input type="text" name="searchBar" id="searchTerms" placeholder="Search..">
-        <button type="submit" id="searchInput"><i class="fa fa-search"></i></button>
-      </div>
-    </section>
-    <section id="results" class="hidden">
-      Here are your results!
-    </section>
-  </section>
+  </div>
 </body>
 </html>

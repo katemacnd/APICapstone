@@ -4,6 +4,8 @@
 $(document).ready(function () {
   'use strict';
 
+// targetting specific element
+
   function watchForm() {
     $('#searchInput').click(event => {
       event.preventDefault();
@@ -18,14 +20,34 @@ $(document).ready(function () {
         xhr.onreadystatechange = function() {
           if (xhr.readyState !== 4) return;
           if (xhr.status === 200) {
-            let data = xhr.responseText;
-            console.log(data.item);
-            var header = data;
-            let paragraph = document.createElement('p');
-            paragraph.innerText = header;
-          }
-          else {
-            console.log('HTTP error', xhr.status, xhr.statusText);
+              //// parser experiment
+              var parseXml;
+
+                if (typeof window.DOMParser != "undefined") {
+                    parseXml = function(xmlStr) {
+                        return ( new window.DOMParser() ).parseFromString(xmlStr, "text/xml");
+                    };
+                } else if (typeof window.ActiveXObject != "undefined" &&
+                       new window.ActiveXObject("Microsoft.XMLDOM")) {
+                    parseXml = function(xmlStr) {
+                        var xmlDoc = new window.ActiveXObject("Microsoft.XMLDOM");
+                        xmlDoc.async = "false";
+                        xmlDoc.loadXML(xmlStr);
+                        return xmlDoc;
+                    };
+                } else {
+                    throw new Error("No XML parser found");
+                }
+
+              let data = xhr.responseText;
+              console.log(data);
+              var xmlDoc = parseXml(data);
+              document.body.innerHTML = xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue;
+////
+
+          //   let paragraph = document.createElement('p');
+          //   paragraph.innerText = txt;
+          // }
           }
         };
       xhr.send();
@@ -59,3 +81,4 @@ $(document).ready(function () {
     // link to the ebay page to purchase
   // "new search" button
   // Close the dropdown menu if the user clicks outside of it
+  // add music while you shop
