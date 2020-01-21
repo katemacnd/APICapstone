@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,19 +11,19 @@
   <script src="main.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body>
-  <div id="mainContent">
-    <h1 class="headline1">Providing All Your Small Farm Needs!</h1>
-    <section>
+  <div>
+    <section id="mainContent">
+      <h1 class="headline1">Providing All Your Small Farm Needs!</h1>
       <section id="neededAnimal">I need something for my...
         <div class="dropBtn">
           <button class="dropButton" onclick="dropDown()">Animal Type</button>
-            <script>
-                function dropDown() {
-                  document.getElementById("myDropdown").classList.toggle("hidden")
-                  ;
-                };
-            </script>
+          <script>
+            function dropDown() {
+              document.getElementById("myDropdown").classList.toggle("hidden");
+            };
+          </script>
           <div id="myDropdown" class="dropdown-content hidden">
             <a href="#" class="dropdownOptions" id="option1">Pig</a>
             <a href="#" class="dropdownOptions" id="option2">Horse</a>
@@ -35,26 +36,39 @@
         <div class="search">
           <input type="text" name="searchBar" id="searchTerms" placeholder="Search..">
           <button type="submit" id="searchInput"><i class="fa fa-search"></i></button>
-        </div>
       </section>
+    </section>
+  </div>
       <section id="finalScreen" class="hidden">
-        <div id="results"></div>
         <div>Here are your results!</div>
+        <div id="results"></div>
         <button type="button" id="newSearch">New Search</button>
       </section>
-  </div>
-  <div id="navBottom">
-      <section id="goodreads">
-        <div id="lowerBar">Want to read up on your farm questions?
-        <button type="button" id="readUp">Book Search</button>
-        </div>
-        <div class="bookSearch hidden">
-          <input type="text" name="searchBar" id="bookSearchTerms" placeholder="Search..">
-          <button type="button" class="hidden" id="newBookSearch">New Search</button>
-          <button type="submit" id="bookSearchTermsButton"><i class="fa fa-search"></i></button>
-          <div id="bookResults"></div>
-        </div>
-      </section>
-  </div>
+
+      <div id="navBottom">
+        <section class="eBay hidden">
+          <div id="suppliesLowerBar" class="hidden">Ready to find some supplies?
+            <button type="button" id="suppliesUp">Supplies Search</button>
+          </div>
+          <div class="mainSuppliesSearch">
+            <input type="text" name="searchBar" id="suppliesSearchTerms" placeholder="Search..">
+            <button type="button" class="hidden" id="newSuppliesSearch">New Supplies Search</button>
+            <button type="submit" id="suppliesSearchTermsButton"><i class="fa fa-search"></i></button>
+          </div>
+        </section>
+
+        <section id="goodreads">
+          <div id="lowerBar">Want to read up on your farm questions?
+            <button type="button" id="readUp">Book Search</button>
+          </div>
+          <div class="bookSearch hidden">
+            <input type="text" name="searchBar" id="bookSearchTerms" placeholder="Search..">
+            <button type="button" class="hidden" id="newBookSearch">New Book Search</button>
+            <button type="submit" id="bookSearchTermsButton"><i class="fa fa-search"></i></button>
+            <div id="bookResults"></div>
+          </div>
+        </section>
+      </div>
 </body>
+
 </html>

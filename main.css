@@ -1,8 +1,9 @@
 body {
   text-align: center;
+
   background: url('https://libreshot.com/wp-content/uploads/2019/08/green-field-861x537.jpg');
-  background-size: cover;
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 h1 {
@@ -13,17 +14,23 @@ h1 {
   font-size: 30px;
 }
 
-#lowerBar {
+button {
+  background-color: white;
+}
+
+#lowerBar, #suppliesLowerBar {
   position: fixed;
-  bottom: 0;
   right: 0;
+  bottom: 0;
+
   background: darkolivegreen;
 }
 
 #mainContent {
-  margin: auto;
-  background: darkolivegreen;
   width: 60%;
+  margin: auto;
+
+  background: darkolivegreen;
 }
 
 p {
@@ -35,14 +42,19 @@ p {
 }
 
 .dropbtn {
-  background-color: grey;
-  color: white;
-  padding: 16px;
-  font-size: 25px;
-  border: none;
-  cursor: pointer;
   position: relative;
+
   flex-direction: row;
+
+  padding: 16px;
+
+  cursor: pointer;
+
+  color: white;
+  border: none;
+  background-color: grey;
+
+  font-size: 25px;
 }
 
 /* Dropdown button on hover & focus */
@@ -53,25 +65,31 @@ p {
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
   position: relative;
+
   display: inline-block;
 }
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-  background-color: grey;
-  min-width: 300px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+
+  min-width: 300px;
   max-width: 30%;
   margin: auto;
+
+  background-color: grey;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
   display: block;
+
+  padding: 12px 16px;
+
+  text-decoration: none;
+
+  color: black;
   border: solid thin;
 }
 
@@ -83,6 +101,7 @@ p {
 
 input[type=text] {
   width: 130px;
+
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
 }
