@@ -54,11 +54,17 @@ $(document).ready(function() {
           $('#finalScreen').toggle('hidden');
           for (let i = 0; i < 5; i++) {
             var x = document.createElement("P");
-            var picture = document.createTextNode(xmlDoc.getElementsByTagName("galleryURL")[i].childNodes[0].nodeValue);
+            // var picture = document.createTextNode(xmlDoc.getElementsByTagName("galleryURL")[i].childNodes[0].nodeValue);
+            var picture = document.createElement('img');
+            picture.src = xmlDoc.getElementsByTagName("galleryURL")[i].childNodes[0].nodeValue;
             x.appendChild(picture);
-            var title = document.createTextNode(xmlDoc.getElementsByTagName("title")[i].childNodes[0].nodeValue);
-            x.appendChild(title);
-            var price = document.createTextNode(xmlDoc.getElementsByTagName("convertedCurrentPrice")[i].childNodes[0].nodeValue);
+            var anchor = document.createElement('a');
+            var title = document.createTextNode(xmlDoc.getElementsByTagName("title")[i].childNodes[0].nodeValue );
+            anchor.appendChild(title);
+            anchor.href = xmlDoc.getElementsByTagName("viewItemURL")[i].childNodes[0].nodeValue;
+            //var title = document.createTextNode(xmlDoc.getElementsByTagName("title")[i].childNodes[0].nodeValue);
+            x.appendChild(anchor);
+            var price = document.createTextNode('$' + xmlDoc.getElementsByTagName("convertedCurrentPrice")[i].childNodes[0].nodeValue);
             x.appendChild(price);
             document.getElementById("results").appendChild(x);
           }
