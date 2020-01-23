@@ -65,7 +65,7 @@ $(document).ready(function() {
             console.log(data);
             var xmlDoc = parseXml(data);
             $('#finalScreen').toggle('hidden');
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < 50; i++) {
               var x = document.createElement("P");
               var picture = document.createElement('img');
               picture.src = xmlDoc.getElementsByTagName("galleryURL")[i].childNodes[0].nodeValue;
@@ -91,9 +91,10 @@ $(document).ready(function() {
   function watchDrop2() {
     $('#suppliesUp').click(event => {
       event.preventDefault();
+      $('.bookSearch').hide();
       $('#lowerBar').toggle();
       $('#bookSearchTerms').toggle();
-      $('#bookSearchTermsButton').toggle();
+      $('#bookSearchTermsButton').show();
       $('#mainContent').toggle();
       $(watchDrop);
       $(watchSearch);
@@ -172,8 +173,8 @@ $(document).ready(function() {
       event.preventDefault();
       $('#mainContent').hide();
       $('#lowerBar').toggle('hidden');
-      $('.bookSearch').toggle('hidden');
-      $('.eBay').toggle('hidden');
+      $('.bookSearch').show();
+      $('.eBay').show();
       $('#suppliesLowerBar').toggle('hidden');
       $('.mainSuppliesSearch').hide();
       $(watchBook);
@@ -188,7 +189,7 @@ $(document).ready(function() {
 /////// to-dos:
 // enter key initiates search
 // remove duplicate listings
-  //create new array called ‘processedItems’ for example outside the for loop and in each iteration push the viewItemUrls into ‘processedItems’.  
+  //create new array called ‘processedItems’ for example outside the for loop and in each iteration push the viewItemUrls into ‘processedItems’.
   //In subsequent iteration, check if the current viewItemUrls is in ‘processedItems’.
   //If yes, that means the current item is a duplicate of an item we already processed so you skip it by calling ‘return’;
   //if no, you process it as usual and create the <p>, <img>, and price tags

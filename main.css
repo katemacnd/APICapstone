@@ -1,21 +1,33 @@
 body {
   text-align: center;
-
   background: url('https://libreshot.com/wp-content/uploads/2019/08/green-field-861x537.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  word-wrap:normal;
 }
 
 h1 {
-  font-size: 50px;
+  margin-top: 250px;
+  font-size: 75px;
 }
+
+#bottomDiv {
+  background-color: darkgrey;
+}
+
 
 * {
   font-size: 30px;
+  color: white;
 }
 
 button {
-  background-color: white;
+  background-color: lightgray;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
 }
 
 #lowerBar, #suppliesLowerBar {
@@ -28,21 +40,33 @@ button {
 #mainContent {
   width: 60%;
   margin: auto;
-  background: darkolivegreen;
   display: flex;
   flex-direction: column;
+}
+
+#results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+#results p a {
+  max-width: 50%;
 }
 
 p {
   background-color: lightgrey;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
+  text-align: left;
+  width:15%;
+  margin-left: 10%;
+  margin-right: 5%
 }
 
 img {
-  width: 150px;
-  height: 150px;
-  margin: auto;
+  width:100%;
 }
 
 .hidden {
@@ -56,7 +80,7 @@ img {
   cursor: pointer;
   color: white;
   border: none;
-  background-color: grey;
+  background-color: lightgrey;
   font-size: 25px;
 }
 
@@ -74,12 +98,11 @@ img {
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
   z-index: 1;
-
+  color: white;
   min-width: 300px;
   max-width: 30%;
   margin: auto;
-
-  background-color: grey;
+  background-color: darkolivegreen;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
@@ -91,8 +114,12 @@ img {
 
   text-decoration: none;
 
-  color: black;
+  color: white;
   border: solid thin;
+}
+
+#selectedAnimal {
+  background-color: lightgrey;
 }
 
 /* Change color of dropdown links on hover */
@@ -102,8 +129,8 @@ img {
 .show {display:block;}
 
 .dropdown-content {
-   max-height: 200px;/* you can change as you need it */
-   overflow:auto;/* to get scroll */
+   max-height: 200px;
+   overflow:auto;
 }
 
 input[type=text] {

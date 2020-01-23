@@ -15,7 +15,7 @@
 <body>
   <div>
     <section id="mainContent">
-      <h1 class="headline1">Providing All Your Small Farm Needs!</h1>
+      <h1 class="headline1">Keep Your Small Farm Stocked!</h1>
       <section id="neededAnimal">I need something for my...
         <div class="dropBtn">
           <button class="dropButton" onclick="dropDown()">Animal Type</button>
@@ -55,17 +55,19 @@
     </section>
   </div>
       <section id="finalScreen" class="hidden">
-        <div>Here are your results!</div>
-        <div id="results"></div>
-        <button type="button" id="newSearch">New Search</button>
+        <div id="bottomDiv">
+          <div>Results!</div>
+          <div id="results"></div>
+          <button type="button" id="newSearch">New Search</button>
+        </div>  
       </section>
 
       <div id="navBottom">
-        <section class="eBay hidden">
+        <section class="eBay">
           <div id="suppliesLowerBar" class="hidden">Ready to find some supplies?
             <button type="button" id="suppliesUp">Supplies Search</button>
           </div>
-          <div class="mainSuppliesSearch">
+          <div class="mainSuppliesSearch hidden">
             <input type="text" name="searchBar" id="suppliesSearchTerms" placeholder="Search..">
             <button type="button" class="hidden" id="newSuppliesSearch">New Supplies Search</button>
             <button type="submit" id="suppliesSearchTermsButton"><i class="fa fa-search"></i></button>
@@ -77,10 +79,11 @@
             <button type="button" id="readUp">Book Search</button>
           </div>
           <div class="bookSearch hidden">
+            <h1 class="headline2"> Enhance your small farm knowledge!</h1>
             <input type="text" name="searchBar" id="bookSearchTerms" placeholder="Search..">
-            <button type="button" class="hidden" id="newBookSearch">New Book Search</button>
             <button type="submit" id="bookSearchTermsButton"><i class="fa fa-search"></i></button>
             <div id="bookResults"></div>
+            <button type="button" class="hidden" id="newBookSearch">New Book Search</button>
           </div>
         </section>
       </div>
