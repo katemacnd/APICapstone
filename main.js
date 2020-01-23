@@ -23,7 +23,7 @@ $(document).ready(function() {
       $('.dropBtn').hide();
       $('#neededAnimal').hide();
       $('#selectedAnimal').append(animalClicked + "?");
-      $('#searchBar').toggle('hidden');
+      $('#searchBar').show();
       watchForm(animalClicked);
     });
 
@@ -65,7 +65,7 @@ $(document).ready(function() {
             console.log(data);
             var xmlDoc = parseXml(data);
             $('#finalScreen').toggle('hidden');
-            for (let i = 0; i < 50; i++) {
+            for (let i = 0; i < 20; i++) {
               var x = document.createElement("P");
               var picture = document.createElement('img');
               picture.src = xmlDoc.getElementsByTagName("galleryURL")[i].childNodes[0].nodeValue;
@@ -92,10 +92,14 @@ $(document).ready(function() {
     $('#suppliesUp').click(event => {
       event.preventDefault();
       $('.bookSearch').hide();
-      $('#lowerBar').toggle();
-      $('#bookSearchTerms').toggle();
+      $('#suppliesLowerBar').hide();
+      $('#bookSearchTerms').show();
       $('#bookSearchTermsButton').show();
-      $('#mainContent').toggle();
+      $('#readUp').show();
+      $('#lowerBar').show();
+      $('#mainContent').show();
+      $('#suppliesUp').hide();
+      $('#suppliesLowerBar').hide();
       $(watchDrop);
       $(watchSearch);
     });
@@ -155,8 +159,11 @@ $(document).ready(function() {
           let data = xhr.responseText;
           console.log(data);
           var xmlDoc = parseXml(data);
-          for (let i = 0; i < 5; i++) {
+          for (let i = 0; i < 10; i++) {
             var z = document.createElement("P");
+            var picture = document.createElement('img');
+            picture.src = xmlDoc.getElementsByTagName("image_url")[i].childNodes[0].nodeValue;
+            z.appendChild(picture);
             var title = document.createTextNode(xmlDoc.getElementsByTagName("title")[i].childNodes[0].nodeValue);
             z.appendChild(title);
             document.getElementById("bookResults").appendChild(z);
@@ -172,11 +179,15 @@ $(document).ready(function() {
     $('#readUp').click(event => {
       event.preventDefault();
       $('#mainContent').hide();
-      $('#lowerBar').toggle('hidden');
+      $('#lowerBar').hide();
       $('.bookSearch').show();
       $('.eBay').show();
-      $('#suppliesLowerBar').toggle('hidden');
+      $('#suppliesLowerBar').show();
+      $('#suppliesUp').show();
       $('.mainSuppliesSearch').hide();
+      $('#results').hide();
+      $('#resultsText').hide();
+      $('#newSearch').hide();
       $(watchBook);
       $(watchDrop2);
     });
