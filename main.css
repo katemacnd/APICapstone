@@ -1,28 +1,27 @@
+
+
 body {
   text-align: center;
   background: url('https://libreshot.com/wp-content/uploads/2019/08/green-field-861x537.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   word-wrap:normal;
+  font-family: 'Yantramanav', sans-serif;
 }
 
 h1 {
   margin-top: 250px;
-  font-size: 75px;
+  font-size: 90px;
 }
-
-#bottomDiv {
-  background-color: darkgrey;
-}
-
 
 * {
-  font-size: 30px;
+  font-size: 50px;
   color: white;
 }
 
 button {
   background-color: lightgray;
+  background: rgba(0, 0, 0, 0.2);
 }
 
 a {
@@ -34,11 +33,11 @@ a {
   position: fixed;
   right: 0;
   bottom: 0;
-  background: darkolivegreen;
 }
 
 #mainContent {
   width: 60%;
+  height: 10em;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -48,29 +47,60 @@ a {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  background-color: black;
+  border: none;
+  margin-left: 5em;
+  margin-right: 5em;
 }
+
 
 #results p a {
-  max-width: 50%;
+  max-width: 65%;
+  font-size: 40px;
 }
 
+#resultsText {
+  background-color: black;
+  border: none;
+  padding: 50px;
+  margin-left: 5em;
+  margin-right: 5em;
+}
+
+input, textarea {
+  background: rgba(0, 0, 0, 0.2);
+  border: none;
+}
+
+/* #bookResults p {
+  align-items:
+} */
+
 p {
-  background-color: lightgrey;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  width:30%;
+  align-items: center;
+  font-size: 40px;
+}
+
+p text {
   text-align: left;
-  width:15%;
-  margin-left: 10%;
-  margin-right: 5%
+  font-size: 40px;
 }
 
 img {
-  width:100%;
+  width: 600px;
+  height: 600px;
 }
 
 .hidden {
   display: none;
+}
+
+#selectedAnimal {
+  background-opacity: 0;
 }
 
 .dropbtn {
@@ -80,7 +110,7 @@ img {
   cursor: pointer;
   color: white;
   border: none;
-  background-color: lightgrey;
+  /* background-color: lightgrey; */
   font-size: 25px;
 }
 
@@ -118,9 +148,9 @@ img {
   border: solid thin;
 }
 
-#selectedAnimal {
+/* #selectedAnimal {
   background-color: lightgrey;
-}
+} */
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {background-color: #ddd}
@@ -134,7 +164,6 @@ img {
 }
 
 input[type=text] {
-  width: 130px;
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
 }
