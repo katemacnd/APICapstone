@@ -14,7 +14,15 @@
 </head>
 
 <body>
-  <div>
+  <section id="landingPage">
+    <h1>Title</h1>
+    <h2>Would you like to purchase farm supplies or gather information about your animals?</h2>
+    <div id="landingChoice">
+      <button id="supplies">Supplies</button>
+      <button id="books">Books</button>
+    </div>
+  </section>
+  <section id="secondaryPages" class="hidden">
     <section id="mainContent">
       <h1 class="headline1">Keep Your Small Farm Stocked!</h1>
       <section id="neededAnimal">I need something for my...
@@ -54,42 +62,42 @@
           <button type="submit" id="searchInput"><i class="fa fa-search"></i></button>
       </section>
     </section>
-  </div>
-      <section id="finalScreen" class="hidden">
-        <div id="bottomDiv">
-            <div id='resultsText'>Results:</div>
-          <div id="results">
-            <!-- <div id='resultsText'>Results:</div> -->
-          </div>
-          <button type="button" id="newSearch">New Search</button>
+    </div>
+    <section id="finalScreen" class="hidden">
+      <div id="bottomDiv">
+        <div id='resultsText'><button type="button" id="newSearch">New Search</button><br>Results:</div>
+
+        <div id="results">
+        </div>
+      </div>
+    </section>
+
+    <div id="navBottom">
+      <section class="eBay">
+        <div id="suppliesLowerBar" class="hidden">Ready to find some supplies?
+          <button type="button" id="suppliesUp">Supplies Search</button>
+        </div>
+        <div class="mainSuppliesSearch hidden">
+          <input type="text" name="searchBar" id="suppliesSearchTerms" placeholder="Search..">
+          <button type="button" class="hidden" id="newSuppliesSearch">New Supplies Search</button>
+          <button type="submit" id="suppliesSearchTermsButton"><i class="fa fa-search"></i></button>
         </div>
       </section>
 
-      <div id="navBottom">
-        <section class="eBay">
-          <div id="suppliesLowerBar" class="hidden">Ready to find some supplies?
-            <button type="button" id="suppliesUp">Supplies Search</button>
-          </div>
-          <div class="mainSuppliesSearch hidden">
-            <input type="text" name="searchBar" id="suppliesSearchTerms" placeholder="Search..">
-            <button type="button" class="hidden" id="newSuppliesSearch">New Supplies Search</button>
-            <button type="submit" id="suppliesSearchTermsButton"><i class="fa fa-search"></i></button>
-          </div>
-        </section>
-
-        <section id="goodreads">
-          <div id="lowerBar">Want to read up on your farm questions?
-            <button type="button" id="readUp">Book Search</button>
-          </div>
-          <div class="bookSearch hidden">
-            <h1 class="headline2"> Enhance your small farm knowledge!</h1>
-            <input type="text" name="searchBar" id="bookSearchTerms" placeholder="Search..">
-            <button type="submit" id="bookSearchTermsButton"><i class="fa fa-search"></i></button>
-            <div id="bookResults"></div>
-            <button type="button" class="hidden" id="newBookSearch">New Book Search</button>
-          </div>
-        </section>
-      </div>
+      <section id="goodreads">
+        <div id="lowerBar">Want to read up on your farm questions?
+          <button type="button" id="readUp">Book Search</button>
+        </div>
+        <div class="bookSearch hidden">
+          <h1 class="headline2"> Enhance your small farm knowledge!</h1>
+          <input type="text" name="searchBar" id="bookSearchTerms" placeholder="Search..">
+          <button type="submit" id="bookSearchTermsButton"><i class="fa fa-search"></i></button>
+          <div id="bookResults"></div>
+          <button type="button" class="hidden" id="newBookSearch">New Book Search</button>
+        </div>
+      </section>
+  </section>
+  </div>
 </body>
 
 </html>
