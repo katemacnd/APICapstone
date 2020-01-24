@@ -7,15 +7,16 @@ body {
   background-size: cover;
   word-wrap:normal;
   font-family: 'Yantramanav', sans-serif;
+  background-color: darkolivegreen;
 }
 
 h1 {
-  margin-top: 200px;
+  margin-top: 50px;
   font-size: 1.7em;
 }
 
 * {
-  font-size: 50px;
+  font-size: 16px;
   color: white;
 }
 
@@ -39,11 +40,11 @@ a {
   position: fixed;
   right: 0;
   bottom: 0;
+  font-size: 12px;
 }
 
 #mainContent {
   width: 60%;
-  height: 40vh;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -61,14 +62,14 @@ a {
 
 
 #results p a {
-  max-width: 65%;
-  font-size: 40px;
+  max-width: 70%;
+  font-size: 12px;
 }
 
 #resultsText {
   background-color: darkolivegreen;
   border: none;
-  padding: 50px;
+  padding: 10px;
   margin-left: 5em;
   margin-right: 5em;
   font-size: 1em;
@@ -87,19 +88,19 @@ p {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  width:30%;
+  width:50%;
   align-items: center;
-  font-size: 40px;
+  font-size: 16px;
 }
 
 p text {
   text-align: left;
-  font-size: 40px;
+  font-size: 16px;
 }
 
 img {
-  width: 200px;
-  height: 200px;
+  width: 50px;
+  height: 50px;
 }
 
 .hidden {
@@ -113,12 +114,12 @@ img {
 .dropbtn {
   position: relative;
   flex-direction: row;
-  padding: 16px;
+  padding: 5px;
   cursor: pointer;
   color: white;
   border: none;
   /* background-color: lightgrey; */
-  font-size: 25px;
+  font-size: 16px;
 }
 
 /* Dropdown button on hover & focus */
@@ -136,7 +137,7 @@ img {
 .dropdown-content {
   z-index: 1;
   color: white;
-  min-width: 300px;
+  min-width: 100px;
   max-width: 30%;
   margin: auto;
   background-color: darkolivegreen;
@@ -147,7 +148,7 @@ img {
 .dropdown-content a {
   display: block;
 
-  padding: 12px 16px;
+  padding: 5px 6px;
 
   text-decoration: none;
 
@@ -166,7 +167,7 @@ img {
 .show {display:block;}
 
 .dropdown-content {
-   max-height: 200px;
+   max-height: 100px;
    overflow:auto;
 }
 
@@ -174,3 +175,54 @@ input[type=text] {
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
 }
+
+@media only screen and (min-width: 426px) {
+
+  h1 {
+    margin-top: 200px;
+  }
+
+  * {
+    font-size: 50px;
+  }
+
+  #results p a {
+    font-size: 40px;
+  }
+
+  #resultsText {
+    padding: 50px;
+  }
+
+  p {
+    font-size: 40px;
+  }
+
+  p text {
+    text-align: left;
+    font-size: 40px;
+  }
+
+  img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .dropbtn {
+    padding: 16px;
+    font-size: 25px;
+  }
+
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    min-width: 300px;
+  }
+
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    padding: 12px 16px;
+  }
+
+  .dropdown-content {
+     max-height: 200px;
+  }
