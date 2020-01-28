@@ -228,14 +228,12 @@ $(document).ready(function() {
 /////// to-dos:
 // enter key initiates search
 // remove duplicate listings
-//create new array called ‘processedItems’ for example outside the for loop and in each iteration push the viewItemUrls into ‘processedItems’.
-//In subsequent iteration, check if the current viewItemUrls is in ‘processedItems’.
-//If yes, that means the current item is a duplicate of an item we already processed so you skip it by calling ‘return’;
-//if no, you process it as usual and create the <p>, <img>, and price tags
+    // create new array called ‘processedItems’ for example outside the for loop and in each iteration push the viewItemUrls into ‘processedItems’.
+    // In subsequent iteration, check if the current viewItemUrls is in ‘processedItems’.
+    // If yes, that means the current item is a duplicate of an item we already processed so you skip it by calling ‘return’;
+    // if no, you process it as usual and create the <p>, <img>, and price tags
 // Display
 // Stars/Ratings
 // Top Comment
 // expand description functionality
-// link to the ebay page to purchase
 // Close the dropdown menu if the user clicks outside of it
-// while on goodreads page, make nav at bottom take back to the ebay API search page
