@@ -35,6 +35,7 @@ button {
   background: rgba(0, 0, 0, 0.2);
   margin-top: .5em;
   margin-bottom: .5em;
+  border: none;
 }
 
 a {
@@ -94,11 +95,12 @@ a {
   justify-content: space-evenly;
   background: url('https://images.pexels.com/photos/301378/pexels-photo-301378.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
   border: none;
+  padding-top: 5vh;
 }
 
 
 #results p a {
-  max-width: 80%;
+  max-width: 70%;
 }
 
 #resultsText {
@@ -135,7 +137,8 @@ img {
 }
 
 #selectedAnimal {
-  background-opacity: 0;
+  background: none;
+  text-align: center;
 }
 
 #neededAnimal, #searchBar {
@@ -149,7 +152,13 @@ img {
   cursor: pointer;
   color: white;
   border: none;
-  font-size: 16px;
+  font-size: 1em;
+  margin: 0;
+}
+
+#dropButton1 {
+    margin-top: .5em;
+    margin-bottom: .5em;
 }
 
 /* Dropdown button on hover & focus */
@@ -171,6 +180,7 @@ img {
   margin: auto;
   background-color: seagreen;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .dropdown-content a {
@@ -178,7 +188,7 @@ img {
   padding: 5px 6px;
   text-decoration: none;
   color: white;
-  border: solid thin;
+  font-size: .6em;
 }
 
 /* Change color of dropdown links on hover */
@@ -201,6 +211,12 @@ input[type=text] {
     font-size: 40px;
   }
 
+  #neededAnimal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
 
 /* tablet-landscape-up */
 @media only screen and (min-width: 900px) {
@@ -218,7 +234,7 @@ input[type=text] {
   }
 
   #results p a {
-    font-size: 40px;
+    font-size: .7em;
   }
 
   #resultsText {
@@ -233,17 +249,13 @@ input[type=text] {
   }
 
   p {
-    font-size: 40px;
+    font-size: .7em;
     width:30%;
   }
 
-  p text {
-    font-size: 40px;
-  }
-
   img {
-    width: 200px;
-    height: 200px;
+    width: 20vw;
+    height: 20vw;
   }
 
   .dropbtn {
@@ -255,11 +267,6 @@ input[type=text] {
     min-width: 300px;
   }
 
-  /* Links inside the dropdown */
   .dropdown-content a {
     padding: 12px 16px;
-  }
-
-  .dropdown-content {
-     max-height: 200px;
   }
