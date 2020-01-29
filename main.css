@@ -7,12 +7,19 @@ body {
 }
 
 h1 {
-  margin-top: 25vh;
   font-size: 1.5em;
   max-width: 90vw;
+  padding-top: 20vh;
 }
 
 h2 {
+  font-size: 1.3em;
+  max-width: 80vw;
+  margin: auto;
+  margin-top: 10vh;
+}
+
+h3 {
   max-width: 70%;
   overflow: auto;
   margin: auto;
@@ -35,10 +42,14 @@ a {
   font-weight: bold;
 }
 
+
 #landingPageBox {
-  background: url('https://libreshot.com/wp-content/uploads/2019/08/green-field-861x537.jpg');
+  background: url('https://images.pexels.com/photos/131634/pexels-photo-131634.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
   background-repeat: no-repeat;
   background-size: cover;
+  height: 90vh;
+  width: 90vw;
+  margin: auto;
 }
 
 #landingChoice {
@@ -49,23 +60,29 @@ a {
 }
 
 #secondaryPages {
-  background: url('https://libreshot.com/wp-content/uploads/2019/08/green-field-861x537.jpg');
+  background: url('https://images.pexels.com/photos/131634/pexels-photo-131634.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
   background-repeat: no-repeat;
   background-size: cover;
+  height: 90vh;
+  width: 90vw;
+  margin: auto;
+  margin-top: 5vh;
 }
 
-#lowerBar, #suppliesLowerBar {
-  position: fixed;
-  top: 2.5vh;
+#upperBar, #suppliesLowerBar {
+  top: 2vh;
   font-size: .75em;
+  line-height: .2;
+  max-width: 80vw;
+  position: relative;
+  margin: auto;
 }
 
-#readUp, #suppliesUp {
+#readUp, #suppliesUp, #newSearch {
   font-size: .75em;
 }
 
 #mainContent {
-  width: 60%;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -75,7 +92,7 @@ a {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  background-color: darkolivegreen;
+  background: url('https://images.pexels.com/photos/301378/pexels-photo-301378.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
   border: none;
 }
 
@@ -90,6 +107,10 @@ a {
   margin-left: 2em;
   margin-right: 2em;
   font-size: 1em;
+}
+
+::placeholder {
+  color: white;
 }
 
 input, textarea {
@@ -117,6 +138,10 @@ img {
   background-opacity: 0;
 }
 
+#neededAnimal, #searchBar {
+  margin-top: 15vh;
+}
+
 .dropbtn {
   position: relative;
   flex-direction: row;
@@ -124,7 +149,6 @@ img {
   cursor: pointer;
   color: white;
   border: none;
-  /* background-color: lightgrey; */
   font-size: 16px;
 }
 
@@ -145,7 +169,7 @@ img {
   min-width: 100px;
   max-width: 30%;
   margin: auto;
-  background-color: darkolivegreen;
+  background-color: seagreen;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
@@ -157,15 +181,11 @@ img {
   border: solid thin;
 }
 
-#selectedAnimal {
-  background-color: lightgrey;
-}
-
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {background-color: #ddd}
 
 .dropdown-content {
-   max-height: 100px;
+   max-height: 50vh;
    overflow:auto;
 }
 
@@ -177,25 +197,25 @@ input[type=text] {
 /* tablet-portrait-up */
 @media only screen and (min-width: 600px) {
 
-
+  * {
+    font-size: 40px;
+  }
 
 
 /* tablet-landscape-up */
 @media only screen and (min-width: 900px) {
 
-
+  * {
+    font-size: 60px;
+  }
 
 
 /* desktop-up */
 @media only screen and (min-width: 1200px) {
 
   h1 {
-    margin-top: 200px;
+    padding-top: 10vh;
   }
-
-  /* * {
-    font-size: 50px;
-  } */
 
   #results p a {
     font-size: 40px;
@@ -203,6 +223,13 @@ input[type=text] {
 
   #resultsText {
     padding: 50px;
+  }
+
+  #upperBar, #suppliesLowerBar {
+    top: 2vh;
+    left: 2vw;
+    font-size: .75em;
+    max-width: 80vw;
   }
 
   p {
