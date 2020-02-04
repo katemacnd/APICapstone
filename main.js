@@ -82,6 +82,9 @@ $(document).ready(function() {
       var x = document.createElement("P");
       var picture = document.createElement('img');
       picture.src = xmlDoc.getElementsByTagName("galleryURL")[i].childNodes[0].nodeValue;
+      if (picture.src === 'https://thumbs1.ebaystatic.com/pict/04040_0.jpg') {
+        continue;
+      } else {
       x.appendChild(picture);
       var anchor = document.createElement('a');
       var title = document.createTextNode(xmlDoc.getElementsByTagName("title")[i].childNodes[0].nodeValue);
@@ -92,6 +95,7 @@ $(document).ready(function() {
       var price = document.createTextNode('$' + xmlDoc.getElementsByTagName("convertedCurrentPrice")[i].childNodes[0].nodeValue);
       x.appendChild(price);
       document.getElementById("results").appendChild(x);
+      }
     }
   }
 
