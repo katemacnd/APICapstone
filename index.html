@@ -14,22 +14,12 @@
 </head>
 
 <body>
-  <section id="landingPage">
-    <div id="landingPageBox">
-      <h1>Farm Depot</h1>
-      <h3>Would you like to purchase farm supplies or gather information about your animals?</h3>
-      <div id="landingChoice">
-        <button id="supplies">Supplies</button>
-        <button id="books">Books</button>
-      </div>
-    </div>
-  </section>
-  <section id="secondaryPages" class="hidden">
-
-    <div id="navTop">
+  <div id="navTop">
+    <ul>
+      <li>
       <section class="eBay">
         <div id="suppliesLowerBar" class="hidden">
-          <button type="button" id="suppliesUp">Farm Supplies Search</button>
+          <button type="button" id="suppliesUp">Farm Supplies</button>
         </div>
         <div class="mainSuppliesSearch hidden">
           <input type="text" name="searchBar" id="suppliesSearchTerms" placeholder="Search..">
@@ -37,25 +27,38 @@
           <button type="submit" id="suppliesSearchTermsButton"><i class="fa fa-search"></i></button>
         </div>
       </section>
+      </li>
 
+      <li>
       <section id="goodreads">
         <div id="upperBar">
-          <button type="button" id="readUp">Farm Book Search</button>
+          <button type="button" id="readUp">Farm Books</button>
         </div>
         <div class="bookSearch hidden">
-          <h1 class="headline2"> Enhance your small farm knowledge!</h1>
-          <input type="text" name="searchBar" id="bookSearchTerms" placeholder="Search..">
-          <button type="button" class="hidden" id="newBookSearch">New Book Search</button>
-          <button type="submit" id="bookSearchTermsButton"><i class="fa fa-search"></i></button>
-          <div id="bookResults"></div>
+          <h2 class="headline2"> Enhance your small farm knowledge!</h1>
+            <input type="text" name="searchBar" id="bookSearchTerms" placeholder="Search..">
+            <button type="button" class="hidden" id="newBookSearch">New Book Search</button>
+            <button type="submit" id="bookSearchTermsButton"><i class="fa fa-search"></i></button>
+            <div id="bookResults"></div>
         </div>
       </section>
-    </div>
+      </li>
+    </ul>
+  </div>
 
+  <section id="landingPage">
+    <h1>Farm Depot</h1>
+    <h3>Would you like to purchase farm supplies or gather information about your animals?</h3>
+    <div id="landingChoice">
+      <button id="supplies">Supplies</button>
+      <button id="books">Books</button>
+    </div>
+  </section>
+  <section id="secondaryPages" class="hidden">
     <section id="mainContent">
       <h2 class="headline1">Keep Your Small Farm Stocked!</h2>
       <section id="neededAnimal">
-        <text id="dropButton1">I need something for my...</text>
+        <h3 id="dropButton1">I need something for my...</h3>
         <div class="dropBtn">
           <button class="dropButton" onclick="dropDown()">Animal Type</button>
           <script>

@@ -3,54 +3,44 @@ body {
   text-align: center;
   word-wrap:normal;
   font-family: 'Yantramanav', sans-serif;
-  background-color: black;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-image: radial-gradient(transparent, black 200%), url('images/fieldbackground.jpg');
 }
 
 h1 {
-  font-size: 1.5em;
-  max-width: 90vw;
-  padding-top: 20vh;
+  font-size: 2em;
 }
 
 h2 {
-  font-size: 1.3em;
+  font-size: 1.5em;
   max-width: 80vw;
   margin: auto;
   margin-top: 10vh;
 }
 
 h3 {
-  max-width: 70%;
+  max-width: 80%;
   overflow: auto;
   margin: auto;
 }
 
 * {
-  font-size: 25px;
+  font-size: 20px;
   color: white;
 }
 
 button {
   background-color: lightgray;
-  background: rgba(0, 0, 0, 0.2);
-  margin-top: .5em;
-  margin-bottom: .5em;
+  background: rgba(0, 0, 0, 0.6);
   border: none;
+  font-size: .8em;
 }
 
 a {
   text-decoration: none;
   font-weight: bold;
-}
-
-
-#landingPageBox {
-  background: url('https://images.pexels.com/photos/131634/pexels-photo-131634.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 90vh;
-  width: 90vw;
-  margin: auto;
 }
 
 #landingChoice {
@@ -61,26 +51,39 @@ a {
 }
 
 #secondaryPages {
-  background: url('https://images.pexels.com/photos/131634/pexels-photo-131634.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+  /* background: url('https://images.pexels.com/photos/131634/pexels-photo-131634.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
   background-repeat: no-repeat;
-  background-size: cover;
-  height: 90vh;
-  width: 90vw;
+  background-size: cover; */
   margin: auto;
   margin-top: 5vh;
 }
 
 #upperBar, #suppliesLowerBar {
-  top: 2vh;
-  font-size: .75em;
+  top: 0;
+  left: 0;
+  font-size: .5em;
   line-height: .2;
-  max-width: 80vw;
   position: relative;
   margin: auto;
+  align-content: left;
 }
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+li {
+  text-align: left;
+  display: inline;
+}
+
 
 #readUp, #suppliesUp, #newSearch {
   font-size: .75em;
+  background: none;
 }
 
 #mainContent {
@@ -93,7 +96,7 @@ a {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  background: url('https://images.pexels.com/photos/301378/pexels-photo-301378.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+  /* background: url('https://images.pexels.com/photos/301378/pexels-photo-301378.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'); */
   border: none;
   padding-top: 5vh;
 }
@@ -147,13 +150,13 @@ img {
 
 .dropbtn {
   position: relative;
-  flex-direction: row;
+  flex-direction: column;
   padding: 5px;
   cursor: pointer;
   color: white;
   border: none;
-  font-size: 1em;
   margin: 0;
+  justify-content: center;
 }
 
 #dropButton1 {
@@ -222,7 +225,8 @@ input[type=text] {
 @media only screen and (min-width: 900px) {
 
   * {
-    font-size: 60px;
+    /* font-size: 60px; */
+    background-size: cover;
   }
 
 
