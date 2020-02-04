@@ -172,35 +172,24 @@ $(document).ready(function() {
 
   function handleBookData() {
     var xmlDoc = this;
-    // var xmlDoc = parseXml(data);
     for (let i = 0; i < 10; i++) {
       var z = document.createElement("P");
       var picture = document.createElement('img');
       picture.src = xmlDoc.getElementsByTagName("image_url")[i].childNodes[0].nodeValue;
-      z.appendChild(picture);
-      var title = document.createTextNode(xmlDoc.getElementsByTagName("title")[i].childNodes[0].nodeValue);
-      z.appendChild(title);
-      document.getElementById("bookResults").appendChild(z);
+      console.log(picture.src);
+      if (picture.src === 'https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png') {
+        continue;
+      } else {
+        //   skip this result (calling return?), continue looping
+        z.appendChild(picture);
+        var title = document.createTextNode(xmlDoc.getElementsByTagName("title")[i].childNodes[0].nodeValue);
+        z.appendChild(title);
+        document.getElementById("bookResults").appendChild(z);
+      }
     }
   }
 
-
-  //   function handleData() {
-  //     var xmlDoc = this;
-  //   // var xmlDoc = parseXml(data);
-  //     for (let i = 0; i < 10; i++) {
-  //       var z = document.createElement("P");
-  //       var picture = document.createElement('img');
-  //       picture.src = xmlDoc.getElementsByTagName("image_url")[i].childNodes[0].nodeValue;
-  //       z.appendChild(picture);
-  //       var title = document.createTextNode(xmlDoc.getElementsByTagName("title")[i].childNodes[0].nodeValue);
-  //       z.appendChild(title);
-  //       document.getElementById("bookResults").appendChild(z);
-  //   }
-  // }
   $(newBookSearch);
-// });
-// }
 
 function watchSearch() {
   $('#readUp').click(event => {
@@ -252,19 +241,16 @@ function watchInitial() {
 $(watchDrop);
 $(watchSearch);
 $(watchInitial);
+
 });
 
 /////// to-dos:
-// refactor watchBook function
-// single purpose functions with clean names
+// clean names for variables & functions
 // enter key initiates search
-// remove duplicate listings
-// create new array called ‘processedItems’ for example outside the for loop and in each iteration push the viewItemUrls into ‘processedItems’.
-// In subsequent iteration, check if the current viewItemUrls is in ‘processedItems’.
-// If yes, that means the current item is a duplicate of an item we already processed so you skip it by calling ‘return’;
-// if no, you process it as usual and create the <p>, <img>, and price tags
+// remove broken images
+// why is second book result always from my local file???
 // Display
-// Stars/Ratings
-// Top Comment
-// expand description functionality
+  // Stars/Ratings
+  // Top Comment
+  // expand description functionality
 // Close the dropdown menu if the user clicks outside of it
