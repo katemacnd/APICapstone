@@ -14,37 +14,14 @@
 </head>
 
 <body>
-  <div id="navTop">
-    <ul>
-      <li>
-      <section class="eBay">
-        <div id="suppliesLowerBar" class="hidden">
-          <button type="button" id="suppliesUp">Farm Supplies</button>
-        </div>
-        <div class="mainSuppliesSearch hidden">
-          <input type="text" name="searchBar" id="suppliesSearchTerms" placeholder="Search..">
-          <button type="button" class="hidden" id="newSuppliesSearch">New Supplies Search</button>
-          <button type="submit" id="suppliesSearchTermsButton"><i class="fa fa-search"></i></button>
-        </div>
-      </section>
-      </li>
-
-      <li>
-      <section id="goodreads">
-        <div id="upperBar">
-          <button type="button" id="readUp">Farm Books</button>
-        </div>
-        <div class="bookSearch hidden">
-          <h2 class="headline2"> Enhance your small farm knowledge!</h1>
-            <input type="text" name="searchBar" id="bookSearchTerms" placeholder="Search..">
-            <button type="button" class="hidden" id="newBookSearch">New Book Search</button>
-            <button type="submit" id="bookSearchTermsButton"><i class="fa fa-search"></i></button>
-            <div id="bookResults"></div>
-        </div>
-      </section>
-      </li>
-    </ul>
-  </div>
+  <ul id="navTop" class="hidden">
+    <li id="suppliesNav">
+      <button type="button" id="suppliesUp">Supplies</button>
+    </li>
+    <li id="booksNav">
+      <button type="button" id="readUp">Books</button>
+    </li>
+  </ul>
 
   <section id="landingPage">
     <h1>Farm Depot</h1>
@@ -55,11 +32,30 @@
     </div>
   </section>
 
+  <section class="eBay">
+    <div class="mainSuppliesSearch hidden">
+      <input type="text" name="searchBar" id="suppliesSearchTerms" placeholder="Search..">
+      <button type="button" class="hidden" id="newSuppliesSearch">New Supplies Search</button>
+      <button type="submit" id="suppliesSearchTermsButton"><i class="fa fa-search"></i></button>
+    </div>
+  </section>
+
+  <section id="goodreads">
+    <div class="bookSearch hidden">
+      <h2 class="headline2"> Enhance your small farm knowledge!</h1>
+        <input type="text" name="searchBar" id="bookSearchTerms" placeholder="Search..">
+        <button type="button" class="hidden" id="newBookSearch">New Book Search</button>
+        <button type="submit" id="bookSearchTermsButton"><i class="fa fa-search"></i></button>
+        <div id="bookResults"></div>
+    </div>
+  </section>
+  </div>
+
   <section id="secondaryPages" class="hidden">
     <section id="mainContent">
       <h2 class="headline1">Keep Your Small Farm Stocked!</h2>
       <section id="neededAnimal">
-        <h3 id="dropButton1">I need something for my...</h3>
+        <h3 id="iNeedSomethingForMy">I need something for my...</h3>
         <div class="dropBtn">
           <button class="dropButton" onclick="dropDown()">Animal Type</button>
           <script>
@@ -99,10 +95,7 @@
     </div>
     <section id="finalScreen" class="hidden">
       <div id="bottomDiv">
-        <div id='resultsText'><button type="button" id="newSearch">New Search</button></div>
-
-        <div id="results">
-        </div>
+        <div id="results">  </div>
       </div>
     </section>
   </section>

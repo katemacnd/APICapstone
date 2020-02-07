@@ -4,16 +4,6 @@ $(document).ready(function() {
   'use strict';
   /// ebay API
 
-  function newSearch() {
-    $('#newSearch').click(event => {
-      event.preventDefault();
-      console.log('new search!');
-      $('#searchBar').toggle('hidden');
-      $('#finalScreen').toggle('hidden');
-      document.getElementById("results").innerHTML = "";
-    });
-  }
-
   function watchDrop() {
     $('.dropdownOptions').click(event => {
       event.preventDefault();
@@ -32,12 +22,11 @@ $(document).ready(function() {
         const searchTerms = ($('#searchTerms').val());
         var fullSearch = animalClicked + " " + searchTerms;
         console.log(searchTerms);
-        $('#searchBar').toggle('hidden');
         let appID = 'Katherin-APICapst-PRD-c82b90351-fbc84e5e';
         let url = `https://cors-anywhere.herokuapp.com/http://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=${appID}&RESPONSE-DATA-FORMAT=XML&REST-PAYLOAD&keywords=${fullSearch}`;
         console.log(url);
         getEbayItemInfo(url, handleData);
-        $(newSearch);
+        document.getElementById("results").innerHTML = "";
       });
     }
   }
@@ -76,7 +65,7 @@ $(document).ready(function() {
 
   function handleData() {
     var xmlDoc = this;
-    $('#finalScreen').toggle('hidden');
+    $('#finalScreen').show();
     $('.fa fa-search').hide();
     for (let i = 0; i < 9; i++) {
       var x = document.createElement("P");
@@ -103,14 +92,11 @@ $(document).ready(function() {
     $('#suppliesUp').click(event => {
       event.preventDefault();
       $('.bookSearch').hide();
-      $('#suppliesLowerBar').hide();
       $('#bookSearchTerms').show();
       $('#bookSearchTermsButton').show();
       $('#readUp').show();
-      $('#upperBar').show();
       $('#mainContent').show();
       $('#suppliesUp').hide();
-      $('#suppliesLowerBar').hide();
       $(watchDrop);
       $(watchSearch);
     });
@@ -118,28 +104,17 @@ $(document).ready(function() {
   // end eBAY API
   // start Goodreads API
 
-
-  function newBookSearch() {
-    $('#newBookSearch').click(event => {
-      event.preventDefault();
-      console.log('new search!');
-      $('#newBookSearch').toggle('hidden');
-      $('#bookSearchTerms').toggle('hidden');
-      document.getElementById("bookResults").innerHTML = "";
-    });
-  }
-
   function watchBook() {
     $('#bookSearchTermsButton').click(event => {
       event.preventDefault();
+      document.getElementById("results").innerHTML = "";
       const searchTerms = ($('#bookSearchTerms').val());
       console.log(searchTerms);
-      $('#bookSearchTerms').toggle('hidden');
-      $('#newBookSearch').toggle('hidden');
       let appID = 'CiGujFcIajhkPUPGHkeNg';
       let url = `https://cors-anywhere.herokuapp.com/http://www.goodreads.com/book/title.xml?title=${searchTerms}&key=${appID}`;
       console.log(url);
       getGoodreadsBookInfo(url, handleBookData);
+      $(watchBook);
     });
   }
 
@@ -184,7 +159,6 @@ $(document).ready(function() {
       if (picture.src === 'https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png') {
         continue;
       } else {
-        //   skip this result (calling return?), continue looping
         z.appendChild(picture);
         var title = document.createTextNode(xmlDoc.getElementsByTagName("title")[i].childNodes[0].nodeValue);
         z.appendChild(title);
@@ -193,16 +167,12 @@ $(document).ready(function() {
     }
   }
 
-  $(newBookSearch);
-
 function watchSearch() {
   $('#readUp').click(event => {
     event.preventDefault();
     $('#mainContent').hide();
-    $('#upperBar').hide();
     $('.bookSearch').show();
     $('.eBay').show();
-    $('#suppliesLowerBar').show();
     $('#suppliesUp').show();
     $('.mainSuppliesSearch').hide();
     $('#results').hide();
@@ -223,14 +193,12 @@ function watchInitial() {
   $('#books').click(event => {
     event.preventDefault();
     $('#mainContent').hide();
-    $('#upperBar').hide();
     $('.mainSuppliesSearch').hide();
     $('#results').hide();
     $('#resultsText').hide();
     $('#newSearch').hide();
     $('.bookSearch').show();
     $('.eBay').show();
-    $('#suppliesLowerBar').show();
     $('#suppliesUp').show();
     $(afterLanding);
     $(watchBook);
@@ -240,6 +208,7 @@ function watchInitial() {
   function afterLanding() {
     $('#landingPage').hide();
     $('#secondaryPages').show();
+    $('#navTop').show();
   }
 }
 $(watchDrop);
@@ -251,8 +220,9 @@ $(watchInitial);
 /////// to-dos:
 // clean names for variables & functions
 // enter key initiates search
-// remove broken images
 // why is second book result always from my local file???
+// create nav bar
+// pricing display to two decimal points
 // Display
   // Stars/Ratings
   // Top Comment

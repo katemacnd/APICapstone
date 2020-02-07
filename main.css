@@ -17,7 +17,7 @@ h2 {
   font-size: 1.5em;
   max-width: 80vw;
   margin: auto;
-  margin-top: 10vh;
+  margin-top: 5vh;
 }
 
 h3 {
@@ -29,6 +29,11 @@ h3 {
 * {
   font-size: 20px;
   color: white;
+}
+
+body {
+  margin: 0;
+  padding: 0;
 }
 
 button {
@@ -58,21 +63,16 @@ a {
   margin-top: 5vh;
 }
 
-#upperBar, #suppliesLowerBar {
-  top: 0;
-  left: 0;
-  font-size: .5em;
-  line-height: .2;
-  position: relative;
-  margin: auto;
-  align-content: left;
-}
 
-ul {
+#navTop {
+  text-align: left;
+  background: rgba(0, 0, 0, 0.4);
   list-style-type: none;
-  margin: 0;
-  padding: 0;
-  /* background: rgba(0, 0, 0, 0.4); */
+  margin:0px auto;
+  height: 5vh;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  width:100%;
 }
 
 li {
@@ -82,7 +82,7 @@ li {
 
 
 #readUp, #suppliesUp, #newSearch {
-  font-size: .75em;
+  font-size: .4em;
   background: none;
 }
 
@@ -91,6 +91,11 @@ li {
   display: flex;
   flex-direction: column;
 }
+
+.dropButton {
+  width: 100%;
+}
+
 
 #results, #bookResults {
   display: flex;
@@ -142,10 +147,11 @@ img {
 #selectedAnimal {
   background: none;
   text-align: center;
+  width: 80vw;
 }
 
 #neededAnimal, #searchBar {
-  margin-top: 15vh;
+  margin-top: 5vh;
 }
 
 .dropbtn {
@@ -156,12 +162,17 @@ img {
   color: white;
   border: none;
   margin: 0;
-  justify-content: center;
 }
 
-#dropButton1 {
+.dropBtn {
+  align-self: center;
+}
+
+#iNeedSomethingForMy {
     margin-top: .5em;
     margin-bottom: .5em;
+    margin-right: 0;
+    margin-left: 0;
 }
 
 /* Dropdown button on hover & focus */
@@ -178,8 +189,7 @@ img {
 .dropdown-content {
   z-index: 1;
   color: white;
-  min-width: 100px;
-  max-width: 30%;
+  width: 100%;
   margin: auto;
   background-color: seagreen;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -211,7 +221,21 @@ input[type=text] {
 @media only screen and (min-width: 600px) {
 
   * {
-    font-size: 40px;
+    font-size: 30px;
+  }
+
+  p {
+    font-size: .6em;
+    width:50%;
+  }
+
+  img {
+    width: 30vw;
+    height: 30vw;
+  }
+
+  #supplies, #books {
+    padding: .5em;
   }
 
   #neededAnimal {
@@ -225,7 +249,6 @@ input[type=text] {
 @media only screen and (min-width: 900px) {
 
   * {
-    /* font-size: 60px; */
     background-size: cover;
   }
 
@@ -245,9 +268,9 @@ input[type=text] {
     padding: 50px;
   }
 
-  #upperBar, #suppliesLowerBar {
-    top: 2vh;
-    left: 2vw;
+  #booksNav, #suppliesNav {
+    /* top: 2vh;
+    left: 2vw; */
     font-size: .75em;
     max-width: 80vw;
   }
