@@ -15,7 +15,7 @@ $(document).ready(function() {
       $('#animalSearchBar').show();
       watchAnimalSelection(animalClicked);
       document.getElementById("suppliesResults").innerHTML = "";
-      document.getElementById("bookResults").innerHTML = ""
+      document.getElementById("bookResults").innerHTML = "";
     });
 
     function watchAnimalSelection(animalClicked) {
@@ -29,8 +29,13 @@ $(document).ready(function() {
         console.log(url);
         getEbayItemInfo(url, handleData);
       });
-    }
+        $('#suppliesSearchTerms').keypress(function(e){
+          if(e.which == 13){//Enter key pressed
+          $('#suppliesSearchButton').click();
+        }
+      });
   }
+}
 
   function getEbayItemInfo(url, callback) {
     let xhr = new XMLHttpRequest();
@@ -68,7 +73,7 @@ $(document).ready(function() {
     var xmlDoc = this;
     $('#finalScreen').show();
     $('.fa fa-search').hide();
-    for (let i = 0; i < 9; i++) {
+    for (let i = 0; i < 15; i++) {
       var x = document.createElement("P");
       var picture = document.createElement('img');
       picture.src = xmlDoc.getElementsByTagName("galleryURL")[i].childNodes[0].nodeValue;
@@ -114,6 +119,12 @@ $(document).ready(function() {
       getGoodreadsBookInfo(url, handleBookData);
       $('#bookResults').show();
     });
+
+    $('#bookSearchTerms').keypress(function(e){
+      if(e.which == 13){//Enter key pressed
+      $('#bookSearchTermsButton').click();
+    }
+  });
   }
 
   function getGoodreadsBookInfo(url, handleBookData) {
@@ -148,7 +159,7 @@ $(document).ready(function() {
 
   function handleBookData() {
     let xmlDoc = this;
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 15; i++) {
       let z = document.createElement("P");
       let picture = document.createElement('img');
       console.log(picture);
@@ -184,7 +195,7 @@ $(document).ready(function() {
     $('#supplies').click(event => {
       event.preventDefault();
       $(afterLanding);
-      ('#suppliesContent').show();
+      $('#suppliesContent').show();
     });
 
     $('#books').click(event => {

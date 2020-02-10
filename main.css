@@ -6,6 +6,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
+  background-size: cover;
   background-image: radial-gradient(transparent, black 200%), url('images/fieldbackground.jpg');
 }
 
@@ -46,6 +47,10 @@ button {
 a {
   text-decoration: none;
   font-weight: bold;
+}
+
+#iNeedSomethingForMy {
+  max-width: 100%;
 }
 
 #landingChoice {
@@ -93,7 +98,7 @@ li {
 }
 
 .dropButton {
-  width: 100%;
+  width: 50%;
 }
 
 
@@ -108,7 +113,7 @@ li {
 
 
 #suppliesResults p a, #bookResults p a {
-  /* max-width: 70%; */
+  max-width: 70%;
 }
 
 #resultsText {
@@ -225,13 +230,22 @@ input[type=text] {
   }
 
   p {
-    font-size: .6em;
-    width:50%;
+    font-size: .5em;
+    width: 25%;
+    margin: 1.25%;
   }
 
   img {
-    width: 30vw;
-    height: 30vw;
+    width: 20vw;
+    height: 20vw;
+  }
+
+  #iNeedSomethingForMy {
+    max-width: 80%;
+  }
+
+  .dropButton {
+    width: 100%;
   }
 
   #supplies, #books {
@@ -260,8 +274,12 @@ input[type=text] {
     padding-top: 10vh;
   }
 
+  #supplies, #books {
+    padding: 1em 2em;
+  }
+
   #suppliesResults p a, #bookResults p a, {
-    font-size: .7em;
+    font-size: .5em;
   }
 
   #resultsText {
@@ -269,20 +287,19 @@ input[type=text] {
   }
 
   #booksNav, #suppliesNav {
-    /* top: 2vh;
-    left: 2vw; */
     font-size: .75em;
     max-width: 80vw;
   }
 
   p {
     font-size: .7em;
-    width:30%;
+    margin: 1.25%;
+    width:20%;
   }
 
   img {
-    width: 20vw;
-    height: 20vw;
+    width: 15vw;
+    height: 15vw;
   }
 
   .dropbtn {
