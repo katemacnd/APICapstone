@@ -86,7 +86,7 @@ li {
   background: none;
 }
 
-#mainContent {
+#suppliesContent {
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -97,7 +97,7 @@ li {
 }
 
 
-#results, #bookResults {
+#suppliesResults, #bookResults {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -107,8 +107,8 @@ li {
 }
 
 
-#results p a {
-  max-width: 70%;
+#suppliesResults p a, #bookResults p a {
+  /* max-width: 70%; */
 }
 
 #resultsText {
@@ -150,7 +150,7 @@ img {
   width: 80vw;
 }
 
-#neededAnimal, #searchBar {
+#animalChoice, #searchBar {
   margin-top: 5vh;
 }
 
@@ -238,7 +238,7 @@ input[type=text] {
     padding: .5em;
   }
 
-  #neededAnimal {
+  #animalChoice {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -260,7 +260,7 @@ input[type=text] {
     padding-top: 10vh;
   }
 
-  #results p a {
+  #suppliesResults p a, #bookResults p a, {
     font-size: .7em;
   }
 

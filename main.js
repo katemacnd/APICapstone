@@ -2,31 +2,32 @@
 /*jshint esversion: 6 */
 $(document).ready(function() {
   'use strict';
-  /// ebay API
 
-  function watchDrop() {
+  /// start ebay API
+
+  function watchAnimalDrop() {
     $('.dropdownOptions').click(event => {
       event.preventDefault();
       const animalSelection = (event.target);
       const animalClicked = $(animalSelection).text();
-      $('.dropBtn').hide();
-      $('#neededAnimal').hide();
+      $('#animalChoice').hide();
       $('#selectedAnimal').append(animalClicked + "?");
-      $('#searchBar').show();
-      watchForm(animalClicked);
+      $('#animalSearchBar').show();
+      watchAnimalSelection(animalClicked);
+      document.getElementById("suppliesResults").innerHTML = "";
+      document.getElementById("bookResults").innerHTML = ""
     });
 
-    function watchForm(animalClicked) {
-      $('#searchInput').click(event => {
+    function watchAnimalSelection(animalClicked) {
+      $('#suppliesSearchButton').click(event => {
         event.preventDefault();
-        const searchTerms = ($('#searchTerms').val());
+        const searchTerms = ($('#suppliesSearchTerms').val());
         var fullSearch = animalClicked + " " + searchTerms;
         console.log(searchTerms);
         let appID = 'Katherin-APICapst-PRD-c82b90351-fbc84e5e';
         let url = `https://cors-anywhere.herokuapp.com/http://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=${appID}&RESPONSE-DATA-FORMAT=XML&REST-PAYLOAD&keywords=${fullSearch}`;
         console.log(url);
         getEbayItemInfo(url, handleData);
-        document.getElementById("results").innerHTML = "";
       });
     }
   }
@@ -71,19 +72,20 @@ $(document).ready(function() {
       var x = document.createElement("P");
       var picture = document.createElement('img');
       picture.src = xmlDoc.getElementsByTagName("galleryURL")[i].childNodes[0].nodeValue;
-      if (picture.src === 'https://thumbs1.ebaystatic.com/pict/04040_0.jpg') {
+      console.log(picture.src);
+      if (picture.src === 'https://thumbs1.ebaystatic.com/pict/04040_0.jpg' || picture.src.trim() === '') {
         continue;
       } else {
-      x.appendChild(picture);
-      var anchor = document.createElement('a');
-      var title = document.createTextNode(xmlDoc.getElementsByTagName("title")[i].childNodes[0].nodeValue);
-      anchor.appendChild(title);
-      anchor.href = xmlDoc.getElementsByTagName("viewItemURL")[i].childNodes[0].nodeValue;
-      var externalLink = x.appendChild(anchor);
-      $(externalLink).attr("target", "_blank");
-      var price = document.createTextNode('$' + xmlDoc.getElementsByTagName("convertedCurrentPrice")[i].childNodes[0].nodeValue);
-      x.appendChild(price);
-      document.getElementById("results").appendChild(x);
+        x.appendChild(picture);
+        var anchor = document.createElement('a');
+        var title = document.createTextNode(xmlDoc.getElementsByTagName("title")[i].childNodes[0].nodeValue);
+        anchor.appendChild(title);
+        anchor.href = xmlDoc.getElementsByTagName("viewItemURL")[i].childNodes[0].nodeValue;
+        var externalLink = x.appendChild(anchor);
+        $(externalLink).attr("target", "_blank");
+        var price = document.createTextNode('$' + xmlDoc.getElementsByTagName("convertedCurrentPrice")[i].childNodes[0].nodeValue);
+        x.appendChild(price);
+        document.getElementById("suppliesResults").appendChild(x);
       }
     }
   }
@@ -91,13 +93,9 @@ $(document).ready(function() {
   function watchDrop2() {
     $('#suppliesUp').click(event => {
       event.preventDefault();
-      $('.bookSearch').hide();
-      $('#bookSearchTerms').show();
-      $('#bookSearchTermsButton').show();
-      $('#readUp').show();
-      $('#mainContent').show();
-      $('#suppliesUp').hide();
-      $(watchDrop);
+      $('#booksContent').hide();
+      $('#suppliesContent').show();
+      $(watchAnimalDrop);
       $(watchSearch);
     });
   }
@@ -107,14 +105,14 @@ $(document).ready(function() {
   function watchBook() {
     $('#bookSearchTermsButton').click(event => {
       event.preventDefault();
-      document.getElementById("results").innerHTML = "";
+      document.getElementById("bookResults").innerHTML = "";
       const searchTerms = ($('#bookSearchTerms').val());
       console.log(searchTerms);
       let appID = 'CiGujFcIajhkPUPGHkeNg';
       let url = `https://cors-anywhere.herokuapp.com/http://www.goodreads.com/book/title.xml?title=${searchTerms}&key=${appID}`;
       console.log(url);
       getGoodreadsBookInfo(url, handleBookData);
-      $(watchBook);
+      $('#bookResults').show();
     });
   }
 
@@ -143,20 +141,21 @@ $(document).ready(function() {
         let data = xhr.responseText;
         var xmlDoc = parseXml(data);
         handleBookData.apply(xmlDoc);
-        console.log(data);
       }
     };
     xhr.send();
   }
 
   function handleBookData() {
-    var xmlDoc = this;
+    let xmlDoc = this;
     for (let i = 0; i < 10; i++) {
-      var z = document.createElement("P");
-      var picture = document.createElement('img');
-      picture.src = xmlDoc.getElementsByTagName("image_url")[i].childNodes[0].nodeValue;
-      console.log(picture.src);
-      if (picture.src === 'https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png') {
+      let z = document.createElement("P");
+      let picture = document.createElement('img');
+      console.log(picture);
+      console.log(xmlDoc.getElementsByTagName("image_url")[i].childNodes[0].nodeValue);
+      let imageSrc = xmlDoc.getElementsByTagName("image_url")[i].childNodes[0].nodeValue.trim();
+      picture.src = imageSrc;
+      if (imageSrc === 'https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png' || imageSrc === '') {
         continue;
       } else {
         z.appendChild(picture);
@@ -167,64 +166,53 @@ $(document).ready(function() {
     }
   }
 
-function watchSearch() {
-  $('#readUp').click(event => {
-    event.preventDefault();
-    $('#mainContent').hide();
-    $('.bookSearch').show();
-    $('.eBay').show();
-    $('#suppliesUp').show();
-    $('.mainSuppliesSearch').hide();
-    $('#results').hide();
-    $('#resultsText').hide();
-    $('#newSearch').hide();
-    $(watchBook);
-    $(watchDrop2);
-  });
-}
-
-/// end goodreads API
-
-function watchInitial() {
-  $('#supplies').click(event => {
-    event.preventDefault();
-    $(afterLanding);
-  });
-  $('#books').click(event => {
-    event.preventDefault();
-    $('#mainContent').hide();
-    $('.mainSuppliesSearch').hide();
-    $('#results').hide();
-    $('#resultsText').hide();
-    $('#newSearch').hide();
-    $('.bookSearch').show();
-    $('.eBay').show();
-    $('#suppliesUp').show();
-    $(afterLanding);
-    $(watchBook);
-    $(watchDrop2);
-  });
-
-  function afterLanding() {
-    $('#landingPage').hide();
-    $('#secondaryPages').show();
-    $('#navTop').show();
+  function watchSearch() {
+    $('#readUp').click(event => {
+      event.preventDefault();
+      $('#suppliesContent').hide();
+      $('#booksContent').show();
+      $('.eBay').show();
+      $(watchBook);
+      $(watchDrop2);
+    });
   }
-}
-$(watchDrop);
-$(watchSearch);
-$(watchInitial);
+
+  /// end goodreads API
+  // landing page start
+
+  function watchInitial() {
+    $('#supplies').click(event => {
+      event.preventDefault();
+      $(afterLanding);
+      ('#suppliesContent').show();
+    });
+
+    $('#books').click(event => {
+      event.preventDefault();
+      $(afterLanding);
+      $('#booksContent').show();
+      $('#suppliesContent').hide();
+    });
+
+    function afterLanding() {
+      $('#landingPage').hide();
+      $('#secondaryPages').show();
+      $('#navTop').show();
+    }
+  }
+
+  $(watchAnimalDrop);
+  $(watchBook);
+  $(watchDrop2);
+  $(watchSearch);
+  $(watchInitial);
 
 });
 
 /////// to-dos:
-// clean names for variables & functions
+
 // enter key initiates search
-// why is second book result always from my local file???
-// create nav bar
+// adjust nav bar alignment
+// fix dropdown alignment
 // pricing display to two decimal points
-// Display
-  // Stars/Ratings
-  // Top Comment
-  // expand description functionality
 // Close the dropdown menu if the user clicks outside of it
