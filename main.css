@@ -1,3 +1,7 @@
+* {
+  font-size: 30px;
+  color: white;
+}
 
 body {
   text-align: center;
@@ -8,14 +12,17 @@ body {
   background-position: center;
   background-size: cover;
   background-image: radial-gradient(transparent, black 200%), url('images/fieldbackground.jpg');
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
-  font-size: 2em;
+  font-size: 1.3em;
+  padding: 0 5vw;
 }
 
 h2 {
-  font-size: 1.5em;
+  font-size: 1.3em;
   max-width: 80vw;
   margin: auto;
   margin-top: 5vh;
@@ -27,26 +34,26 @@ h3 {
   margin: auto;
 }
 
-* {
-  font-size: 20px;
-  color: white;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-}
-
 button {
   background-color: lightgray;
   background: rgba(0, 0, 0, 0.6);
   border: none;
   font-size: .8em;
+  height: 8vh;
+  margin: auto 2vw;
 }
 
 a {
   text-decoration: none;
   font-weight: bold;
+}
+
+input {
+  padding-left: 2vw;
+}
+
+#suppliesSearchTerms {
+  height: 8vh;
 }
 
 #iNeedSomethingForMy {
@@ -74,7 +81,7 @@ a {
   background: rgba(0, 0, 0, 0.4);
   list-style-type: none;
   margin:0px auto;
-  height: 5vh;
+  height: 8vh;
   margin-block-start: 0;
   margin-block-end: 0;
   width:100%;
@@ -82,12 +89,19 @@ a {
 
 li {
   text-align: left;
-  display: inline;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+ul {
+  display: flex;
+  align-items: center;
+  padding-inline-start: .5em;
 }
 
 
-#readUp, #suppliesUp, #newSearch {
-  font-size: .4em;
+#readUp, #suppliesUp {
+  font-size: .8em;
   background: none;
 }
 
@@ -225,10 +239,6 @@ input[type=text] {
 /* tablet-portrait-up */
 @media only screen and (min-width: 600px) {
 
-  * {
-    font-size: 30px;
-  }
-
   p {
     font-size: .5em;
     width: 25%;
@@ -236,8 +246,13 @@ input[type=text] {
   }
 
   img {
-    width: 20vw;
-    height: 20vw;
+    max-width: 15vw;
+    max-height: 15vw;
+  }
+
+  #bookResults img {
+    max-width: 9vw;
+    max-height: 13vw;
   }
 
   #iNeedSomethingForMy {
@@ -290,6 +305,10 @@ input[type=text] {
     font-size: .75em;
     max-width: 80vw;
   }
+
+#navTop {
+  height: 6vh;
+}
 
   p {
     font-size: .7em;

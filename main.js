@@ -30,7 +30,7 @@ $(document).ready(function() {
         getEbayItemInfo(url, handleData);
       });
         $('#suppliesSearchTerms').keypress(function(e){
-          if(e.which == 13){//Enter key pressed
+          if(e.which == 13){
           $('#suppliesSearchButton').click();
         }
       });
@@ -38,6 +38,7 @@ $(document).ready(function() {
 }
 
   function getEbayItemInfo(url, callback) {
+    document.getElementById('suppliesResults').innerHTML = "";
     let xhr = new XMLHttpRequest();
     xhr.open('GET', url);
     xhr.onreadystatechange = function() {
@@ -100,6 +101,7 @@ $(document).ready(function() {
       event.preventDefault();
       $('#booksContent').hide();
       $('#suppliesContent').show();
+      document.getElementById('#selectedAnimal').innerHTML = "What do you need for your ";
       $(watchAnimalDrop);
       $(watchSearch);
     });
@@ -110,7 +112,6 @@ $(document).ready(function() {
   function watchBook() {
     $('#bookSearchTermsButton').click(event => {
       event.preventDefault();
-      document.getElementById("bookResults").innerHTML = "";
       const searchTerms = ($('#bookSearchTerms').val());
       console.log(searchTerms);
       let appID = 'CiGujFcIajhkPUPGHkeNg';
@@ -152,6 +153,7 @@ $(document).ready(function() {
         let data = xhr.responseText;
         var xmlDoc = parseXml(data);
         handleBookData.apply(xmlDoc);
+        console.log(data);
       }
     };
     xhr.send();
