@@ -1,3 +1,4 @@
+
 * {
   font-size: 30px;
   color: white;
@@ -24,7 +25,7 @@ h1 {
 h2 {
   font-size: 1.3em;
   max-width: 80vw;
-  margin: auto;
+  margin: auto auto 10vh auto;
   margin-top: 5vh;
 }
 
@@ -58,6 +59,11 @@ input {
 
 #iNeedSomethingForMy {
   max-width: 100%;
+}
+
+
+#suppliesResults p a, #bookResults p a, {
+  font-size: .3em !important;
 }
 
 #landingChoice {
@@ -100,6 +106,10 @@ ul {
 }
 
 
+#supplies, #books {
+  font-size: .8em;
+}
+
 #readUp, #suppliesUp {
   font-size: .8em;
   background: none;
@@ -112,7 +122,8 @@ ul {
 }
 
 .dropButton {
-  width: 50%;
+  width: 100%;
+  font-weight: bold;
 }
 
 
@@ -128,6 +139,7 @@ ul {
 
 #suppliesResults p a, #bookResults p a {
   max-width: 70%;
+  font-size:.65em;
 }
 
 #resultsText {
@@ -157,6 +169,11 @@ p {
 img {
   width: 50vw;
   height: 50vw;
+  image-rendering: pixelated;
+}
+
+img:hover {
+    filter:blur(50px);
 }
 
 .hidden {
@@ -170,7 +187,7 @@ img {
 }
 
 #animalChoice, #searchBar {
-  margin-top: 5vh;
+  margin: 0 10vw;
 }
 
 .dropbtn {
@@ -209,7 +226,7 @@ img {
   z-index: 1;
   color: white;
   width: 100%;
-  margin: auto;
+  margin: auto 2vw;
   background-color: seagreen;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   background: rgba(0, 0, 0, 0.2);
@@ -236,6 +253,24 @@ input[type=text] {
   transition: width 0.4s ease-in-out;
 }
 
+/* tiny screens */
+@media only screen and (max-width: 375px) {
+  h1 {
+    font-size: 1em;
+  }
+
+  h2 {
+    font-size: .9em;
+  }
+
+  h3 {
+    font-size: .7em;
+  }
+
+  button, input, #readUp, #suppliesUp {
+    font-size: .5em;
+  }
+
 /* tablet-portrait-up */
 @media only screen and (min-width: 600px) {
 
@@ -250,6 +285,10 @@ input[type=text] {
     max-height: 15vw;
   }
 
+  #suppliesResults p a, #bookResults p a {
+    font-size: 1em;
+  }
+
   #bookResults img {
     max-width: 9vw;
     max-height: 13vw;
@@ -257,10 +296,6 @@ input[type=text] {
 
   #iNeedSomethingForMy {
     max-width: 80%;
-  }
-
-  .dropButton {
-    width: 100%;
   }
 
   #supplies, #books {
@@ -294,7 +329,7 @@ input[type=text] {
   }
 
   #suppliesResults p a, #bookResults p a, {
-    font-size: .5em;
+    font-size: .3em !important;
   }
 
   #resultsText {

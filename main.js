@@ -19,21 +19,18 @@ $(document).ready(function() {
     });
 
     function watchAnimalSelection(animalClicked) {
-      $('#suppliesSearchButton').click(event => {
-        event.preventDefault();
-        const searchTerms = ($('#suppliesSearchTerms').val());
-        var fullSearch = animalClicked + " " + searchTerms;
-        console.log(searchTerms);
-        let appID = 'Katherin-APICapst-PRD-c82b90351-fbc84e5e';
-        let url = `https://cors-anywhere.herokuapp.com/http://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=${appID}&RESPONSE-DATA-FORMAT=XML&REST-PAYLOAD&keywords=${fullSearch}`;
-        console.log(url);
-        getEbayItemInfo(url, handleData);
-      });
-        $('#suppliesSearchTerms').keypress(function(e){
-          if(e.which == 13){
-          $('#suppliesSearchButton').click();
-        }
-      });
+      $('#suppliesSearchTerms').keypress(function(e){
+        if(e.which == 13){
+          event.preventDefault();
+          const searchTerms = ($('#suppliesSearchTerms').val());
+          var fullSearch = animalClicked + " " + searchTerms;
+          // console.log(searchTerms);
+          let appID = 'Katherin-APICapst-PRD-c82b90351-fbc84e5e';
+          let url = `https://cors-anywhere.herokuapp.com/http://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=${appID}&RESPONSE-DATA-FORMAT=XML&REST-PAYLOAD&keywords=${fullSearch}`;
+          // console.log(url);
+          getEbayItemInfo(url, handleData);
+      }
+    });
   }
 }
 
@@ -64,7 +61,7 @@ $(document).ready(function() {
         let data = xhr.responseText;
         var xmlDoc = parseXml(data);
         callback.apply(xmlDoc);
-        console.log(data);
+        // console.log(data);
       }
     };
     xhr.send();
@@ -78,7 +75,7 @@ $(document).ready(function() {
       var x = document.createElement("P");
       var picture = document.createElement('img');
       picture.src = xmlDoc.getElementsByTagName("galleryURL")[i].childNodes[0].nodeValue;
-      console.log(picture.src);
+      // console.log(picture.src);
       if (picture.src === 'https://thumbs1.ebaystatic.com/pict/04040_0.jpg' || picture.src.trim() === '') {
         continue;
       } else {
@@ -89,7 +86,8 @@ $(document).ready(function() {
         anchor.href = xmlDoc.getElementsByTagName("viewItemURL")[i].childNodes[0].nodeValue;
         var externalLink = x.appendChild(anchor);
         $(externalLink).attr("target", "_blank");
-        var price = document.createTextNode('$' + xmlDoc.getElementsByTagName("convertedCurrentPrice")[i].childNodes[0].nodeValue);
+        // console.log(xmlDoc.getElementsByTagName("convertedCurrentPrice")[i].childNodes[0].nodeValue);
+        var price = document.createTextNode( "$" + parseFloat(xmlDoc.getElementsByTagName("convertedCurrentPrice")[i].childNodes[0].nodeValue).toFixed(2));
         x.appendChild(price);
         document.getElementById("suppliesResults").appendChild(x);
       }
@@ -110,23 +108,19 @@ $(document).ready(function() {
   // start Goodreads API
 
   function watchBook() {
-    $('#bookSearchTermsButton').click(event => {
-      event.preventDefault();
-      const searchTerms = ($('#bookSearchTerms').val());
-      console.log(searchTerms);
-      let appID = 'CiGujFcIajhkPUPGHkeNg';
-      let url = `https://cors-anywhere.herokuapp.com/http://www.goodreads.com/book/title.xml?title=${searchTerms}&key=${appID}`;
-      console.log(url);
-      getGoodreadsBookInfo(url, handleBookData);
-      $('#bookResults').show();
-    });
-
-    $('#bookSearchTerms').keypress(function(e){
-      if(e.which == 13){//Enter key pressed
-      $('#bookSearchTermsButton').click();
-    }
-  });
-  }
+    $('#bookSearchTerms').keypress(event => {
+      if(event.which == 13){
+        event.preventDefault();
+        const searchTerms = ($('#bookSearchTerms').val());
+        // console.log(searchTerms);
+        let appID = 'CiGujFcIajhkPUPGHkeNg';
+        let url = `https://cors-anywhere.herokuapp.com/http://www.goodreads.com/book/title.xml?title=${searchTerms}&key=${appID}`;
+        // console.log(url);
+        getGoodreadsBookInfo(url, handleBookData);
+        $('#bookResults').show();
+    }}
+  );
+}
 
   function getGoodreadsBookInfo(url, handleBookData) {
     let xhr = new XMLHttpRequest();
@@ -153,7 +147,7 @@ $(document).ready(function() {
         let data = xhr.responseText;
         var xmlDoc = parseXml(data);
         handleBookData.apply(xmlDoc);
-        console.log(data);
+        // console.log(data);
       }
     };
     xhr.send();
@@ -164,8 +158,8 @@ $(document).ready(function() {
     for (let i = 0; i < 15; i++) {
       let z = document.createElement("P");
       let picture = document.createElement('img');
-      console.log(picture);
-      console.log(xmlDoc.getElementsByTagName("image_url")[i].childNodes[0].nodeValue);
+      // console.log(picture);
+      // console.log(xmlDoc.getElementsByTagName("image_url")[i].childNodes[0].nodeValue);
       let imageSrc = xmlDoc.getElementsByTagName("image_url")[i].childNodes[0].nodeValue.trim();
       picture.src = imageSrc;
       if (imageSrc === 'https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png' || imageSrc === '') {
@@ -221,11 +215,3 @@ $(document).ready(function() {
   $(watchInitial);
 
 });
-
-/////// to-dos:
-
-// enter key initiates search
-// adjust nav bar alignment
-// fix dropdown alignment
-// pricing display to two decimal points
-// Close the dropdown menu if the user clicks outside of it
