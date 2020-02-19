@@ -40,7 +40,6 @@ button {
   background: rgba(0, 0, 0, 0.6);
   border: none;
   font-size: .8em;
-  height: 8vh;
   margin: auto 2vw;
 }
 
@@ -134,7 +133,6 @@ ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  /* background: url('https://images.pexels.com/photos/301378/pexels-photo-301378.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'); */
   border: none;
   padding-top: 5vh;
 }
@@ -176,7 +174,7 @@ img {
 }
 
 p:hover {
-    filter:blur(100px);
+    filter:blur(3px);
 }
 
 .hidden {
@@ -273,7 +271,7 @@ input[type=text] {
   button, input, #readUp, #suppliesUp {
     font-size: .5em;
   }
-
+}
 /* tablet-portrait-up */
 @media only screen and (min-width: 600px) {
 

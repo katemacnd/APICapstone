@@ -14,8 +14,7 @@ $(document).ready(function() {
       $('#selectedAnimal').append(animalClicked + "?");
       $('#animalSearchBar').show();
       watchAnimalSelection(animalClicked);
-      document.getElementById("suppliesResults").innerHTML = "";
-      document.getElementById("bookResults").innerHTML = "";
+      document.getElementById("suppliesResults").innerHTML = "";;
     });
 
     function watchAnimalSelection(animalClicked) {
@@ -82,8 +81,8 @@ $(document).ready(function() {
         x.appendChild(picture);
         var anchor = document.createElement('a');
         var title = document.createTextNode(xmlDoc.getElementsByTagName("title")[i].childNodes[0].nodeValue);
-        anchor.appendChild(title);
         anchor.appendChild(picture);
+        anchor.appendChild(title);
         anchor.href = xmlDoc.getElementsByTagName("viewItemURL")[i].childNodes[0].nodeValue;
         var externalLink = x.appendChild(anchor);
         $(externalLink).attr("target", "_blank");
@@ -112,6 +111,7 @@ $(document).ready(function() {
     $('#bookSearchTerms').keypress(event => {
       if(event.which == 13){
         event.preventDefault();
+        document.getElementById("bookResults").innerHTML = ""
         const searchTerms = ($('#bookSearchTerms').val());
         // console.log(searchTerms);
         let appID = 'CiGujFcIajhkPUPGHkeNg';
@@ -157,7 +157,7 @@ $(document).ready(function() {
 
   function handleBookData() {
     let xmlDoc = this;
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < 15; i++) {
       let z = document.createElement("P");
       let picture = document.createElement('img');
       let imageSrc = xmlDoc.getElementsByTagName("image_url")[i].childNodes[0].nodeValue.trim();
@@ -172,8 +172,6 @@ $(document).ready(function() {
         let bestBook = xmlDoc.getElementsByTagName("best_book")[i];
         let bookID = bestBook.children[0].textContent;
         let url = `https://www.goodreads.com/book/show/${bookID}`;
-        console.log(bookID);
-        console.log(url);
         anchor.href = url;
         var externalLink = z.appendChild(anchor);
         $(externalLink).attr("target", "_blank");
@@ -181,7 +179,18 @@ $(document).ready(function() {
         anchor.appendChild(title);
         document.getElementById("bookResults").appendChild(z);
       }
+    $(removeDuplicates);
     }
+  }
+
+  function removeDuplicates() {
+    var img = $("img");
+    var used = {};
+    img.each(function() {
+      var src = $(this).attr('src');
+      if(used[src]) $(this).parentElement.remove();
+      used[src]=1;
+    });
   }
 
   function watchSearch() {
