@@ -94,7 +94,7 @@ $(document).ready(function() {
     }
   }
 
-  function watchDrop2() {
+  function watchDropFromNav() {
     $('#suppliesUp').click(event => {
       event.preventDefault();
       $('#booksContent').hide();
@@ -111,7 +111,7 @@ $(document).ready(function() {
     $('#bookSearchTerms').keypress(event => {
       if(event.which == 13){
         event.preventDefault();
-        document.getElementById("bookResults").innerHTML = ""
+        document.getElementById("bookResults").innerHTML = "";
         const searchTerms = ($('#bookSearchTerms').val());
         // console.log(searchTerms);
         let appID = 'CiGujFcIajhkPUPGHkeNg';
@@ -149,7 +149,6 @@ $(document).ready(function() {
         let data = xhr.responseText;
         var xmlDoc = parseXml(data);
         handleBookData.apply(xmlDoc);
-        // console.log(data);
       }
     };
     xhr.send();
@@ -200,7 +199,7 @@ $(document).ready(function() {
       $('#booksContent').show();
       $('.eBay').show();
       $(watchBook);
-      $(watchDrop2);
+      $(watchDropFromNav);
     });
   }
 
@@ -230,7 +229,7 @@ $(document).ready(function() {
 
   $(watchAnimalDrop);
   $(watchBook);
-  $(watchDrop2);
+  $(watchDropFromNav);
   $(watchSearch);
   $(watchInitial);
 
