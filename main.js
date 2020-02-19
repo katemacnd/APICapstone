@@ -83,6 +83,7 @@ $(document).ready(function() {
         var anchor = document.createElement('a');
         var title = document.createTextNode(xmlDoc.getElementsByTagName("title")[i].childNodes[0].nodeValue);
         anchor.appendChild(title);
+        anchor.appendChild(picture);
         anchor.href = xmlDoc.getElementsByTagName("viewItemURL")[i].childNodes[0].nodeValue;
         var externalLink = x.appendChild(anchor);
         $(externalLink).attr("target", "_blank");
@@ -115,7 +116,7 @@ $(document).ready(function() {
         // console.log(searchTerms);
         let appID = 'CiGujFcIajhkPUPGHkeNg';
         let url = `https://cors-anywhere.herokuapp.com/http://www.goodreads.com/book/title.xml?title=${searchTerms}&key=${appID}`;
-        // console.log(url);
+        console.log(url);
         getGoodreadsBookInfo(url, handleBookData);
         $('#bookResults').show();
     }}
@@ -147,7 +148,7 @@ $(document).ready(function() {
         let data = xhr.responseText;
         var xmlDoc = parseXml(data);
         handleBookData.apply(xmlDoc);
-        // console.log(data);
+        console.log(data);
       }
     };
     xhr.send();
@@ -158,16 +159,21 @@ $(document).ready(function() {
     for (let i = 0; i < 15; i++) {
       let z = document.createElement("P");
       let picture = document.createElement('img');
-      // console.log(picture);
-      // console.log(xmlDoc.getElementsByTagName("image_url")[i].childNodes[0].nodeValue);
       let imageSrc = xmlDoc.getElementsByTagName("image_url")[i].childNodes[0].nodeValue.trim();
       picture.src = imageSrc;
       if (imageSrc === 'https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png' || imageSrc === '') {
         continue;
       } else {
         z.appendChild(picture);
+        var anchor = document.createElement('a');
         var title = document.createTextNode(xmlDoc.getElementsByTagName("title")[i].childNodes[0].nodeValue);
+        anchor.appendChild(picture);
+        anchor.href = xmlDoc.getElementsByTagName("url")[i].childNodes[0].nodeValue;
+        console.log(anchor.href)
+        var externalLink = z.appendChild(anchor);
+        $(externalLink).attr("target", "_blank");
         z.appendChild(title);
+        anchor.appendChild(title);
         document.getElementById("bookResults").appendChild(z);
       }
     }
