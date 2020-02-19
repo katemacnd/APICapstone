@@ -115,7 +115,8 @@ $(document).ready(function() {
         const searchTerms = ($('#bookSearchTerms').val());
         // console.log(searchTerms);
         let appID = 'CiGujFcIajhkPUPGHkeNg';
-        let url = `https://cors-anywhere.herokuapp.com/http://www.goodreads.com/book/title.xml?title=${searchTerms}&key=${appID}`;
+        // let url = `https://cors-anywhere.herokuapp.com/http://www.goodreads.com/book/title.xml?title=${searchTerms}&key=${appID}`;
+        let url = `https://cors-anywhere.herokuapp.com/http://www.goodreads.com/search/index.xml?q=${searchTerms}&key=${appID}`;
         console.log(url);
         getGoodreadsBookInfo(url, handleBookData);
         $('#bookResults').show();
@@ -148,7 +149,7 @@ $(document).ready(function() {
         let data = xhr.responseText;
         var xmlDoc = parseXml(data);
         handleBookData.apply(xmlDoc);
-        console.log(data);
+        // console.log(data);
       }
     };
     xhr.send();
@@ -156,7 +157,7 @@ $(document).ready(function() {
 
   function handleBookData() {
     let xmlDoc = this;
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < 7; i++) {
       let z = document.createElement("P");
       let picture = document.createElement('img');
       let imageSrc = xmlDoc.getElementsByTagName("image_url")[i].childNodes[0].nodeValue.trim();
@@ -168,8 +169,12 @@ $(document).ready(function() {
         var anchor = document.createElement('a');
         var title = document.createTextNode(xmlDoc.getElementsByTagName("title")[i].childNodes[0].nodeValue);
         anchor.appendChild(picture);
-        anchor.href = xmlDoc.getElementsByTagName("url")[i].childNodes[0].nodeValue;
-        console.log(anchor.href)
+        let bestBook = xmlDoc.getElementsByTagName("best_book")[i];
+        let bookID = bestBook.children[0].textContent;
+        let url = `https://www.goodreads.com/book/show/${bookID}`;
+        console.log(bookID);
+        console.log(url);
+        anchor.href = url;
         var externalLink = z.appendChild(anchor);
         $(externalLink).attr("target", "_blank");
         z.appendChild(title);
