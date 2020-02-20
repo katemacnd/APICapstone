@@ -41,6 +41,7 @@ button {
   border: none;
   font-size: .8em;
   margin: auto 2vw;
+  border-radius: 10px;
 }
 
 a {
@@ -53,6 +54,7 @@ a {
 
 input {
   padding-left: 2vw;
+  border-radius: 10px;
 }
 
 #suppliesSearchTerms {
@@ -171,6 +173,7 @@ img {
   width: 50vw;
   height: 50vw;
   image-rendering: pixelated;
+  border-radius: 10px;
 }
 
 .hidden {
