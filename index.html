@@ -16,10 +16,10 @@
 <body>
   <ul id="navTop" class="hidden">
     <li id="suppliesNav">
-      <button type="button" id="suppliesUp">Supplies</button>
+      <button type="button" id="suppliesUp">New Supplies</button>
     </li>
     <li id="booksNav">
-      <button type="button" id="readUp">Books</button>
+      <button type="button" id="readUp">New Books</button>
     </li>
   </ul>
 
@@ -69,14 +69,14 @@
         </div>
       </section>
       <section id="animalSearchBar" class="hidden">
-        <h3 id="selectedAnimal">What do you need for your </h3>
+        <h3 id="selectedAnimal"></h3>
         <div class="search">
-          <input type="text" name="searchBar" id="suppliesSearchTerms" placeholder="Search..">
+          <input type="text" label="searchBar" id="suppliesSearchTerms" placeholder="Search..">
         </div>
       </section>
       <div id="finalScreen" class="hidden">
         <div id="bottomDiv">
-          <div id="suppliesResults"> </div>
+          <ul id="suppliesResults"> </ul>
         </div>
       </div>
     </section>
@@ -84,9 +84,9 @@
     <section id="booksContent" class="hidden">
       <h2 class="booksHeadline"> Enhance your small farm knowledge!</h2>
       <h3><br>What would you like to read about? <br>(This will search subject lines)</h3>
-      <input type="text" name="searchBar" id="bookSearchTerms" placeholder="Search..">
+      <input type="text" label="searchBar" id="bookSearchTerms" placeholder="Search..">
       <button type="button" class="hidden" id="newBookSearch">New Book Search</button>
-      <div id="bookResults"></div>
+      <ul id="bookResults"></ul>
     </section>
 
   </div>
