@@ -14,6 +14,7 @@ $(document).ready(function() {
       $('#animalChoice').hide();
       $('#selectedAnimal').append('What do you need for your ' + animalClicked + '?');
       $('#animalSearchBar').show();
+      $('.dropdownOptions').hide();
       watchAnimalSelection(animalClicked);
       document.getElementById('suppliesResults').innerHTML = '';
     });
@@ -57,7 +58,6 @@ $(document).ready(function() {
         } else {
           throw new Error('No XML parser found');
         }
-
         let data = xhr.responseText;
         let xmlDoc = parseXml(data);
         callback.apply(xmlDoc);
@@ -70,24 +70,28 @@ $(document).ready(function() {
     let xmlDoc = this;
     $('#finalScreen').show();
     $('.fa fa-search').hide();
-    for (let i = 0; i < 15; i++) {
-      let x = document.createElement('li');
-      let picture = document.createElement('img');
-      picture.src = xmlDoc.getElementsByTagName('galleryURL')[i].childNodes[0].nodeValue;
-      if (picture.src === 'https://thumbs1.ebaystatic.com/pict/04040_0.jpg' || picture.src.trim() === '') {
-        continue;
-      } else {
-        let title = document.createTextNode(xmlDoc.getElementsByTagName('title')[i].childNodes[0].nodeValue);
-        picture.setAttribute('alt', xmlDoc.getElementsByTagName('title')[i].childNodes[0].nodeValue);
-        let anchor = document.createElement('a');
-        anchor.appendChild(picture);
-        anchor.appendChild(title);
-        anchor.href = xmlDoc.getElementsByTagName('viewItemURL')[i].childNodes[0].nodeValue;
-        let externalLink = x.appendChild(anchor);
-        $(externalLink).attr('target', '_blank');
-        let price = document.createTextNode('$' + parseFloat(xmlDoc.getElementsByTagName('convertedCurrentPrice')[i].childNodes[0].nodeValue).toFixed(2));
-        x.appendChild(price);
-        document.getElementById('suppliesResults').appendChild(x);
+    if (xmlDoc.getElementsByTagName('galleryURL').length === 0) {
+      alert('no results!');
+    } else {
+      for (let i = 0; i < 15; i++) {
+        let x = document.createElement('li');
+        let picture = document.createElement('img');
+        picture.src = xmlDoc.getElementsByTagName('galleryURL')[i].childNodes[0].nodeValue;
+        if (picture.src === 'https://thumbs1.ebaystatic.com/pict/04040_0.jpg' || picture.src.trim() === '') {
+          continue;
+        } else {
+          let title = document.createTextNode(xmlDoc.getElementsByTagName('title')[i].childNodes[0].nodeValue);
+          picture.setAttribute('alt', xmlDoc.getElementsByTagName('title')[i].childNodes[0].nodeValue);
+          let anchor = document.createElement('a');
+          anchor.appendChild(picture);
+          anchor.appendChild(title);
+          anchor.href = xmlDoc.getElementsByTagName('viewItemURL')[i].childNodes[0].nodeValue;
+          let externalLink = x.appendChild(anchor);
+          $(externalLink).attr('target', '_blank');
+          let price = document.createTextNode('$' + parseFloat(xmlDoc.getElementsByTagName('convertedCurrentPrice')[i].childNodes[0].nodeValue).toFixed(2));
+          x.appendChild(price);
+          document.getElementById('suppliesResults').appendChild(x);
+        }
       }
     }
   }
@@ -99,11 +103,12 @@ $(document).ready(function() {
       $('#suppliesContent').show();
       $('#animalChoice').show();
       $('#animalSearchBar').hide();
-      document.getElementById('#suppliesResults').innerHTML = '';
+      document.getElementById('suppliesResults').innerHTML = '';
       $(watchAnimalDrop);
       $(watchSearch);
     });
   }
+
   // end eBAY API
   // start Goodreads API
 

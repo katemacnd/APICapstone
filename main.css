@@ -111,6 +111,11 @@ ul {
   padding-inline-end: .5em;
 }
 
+.navOptions {
+  display: contents;
+  align-items: left;
+}
+
 #supplies, #books {
   font-size: .8em;
 }
@@ -343,7 +348,7 @@ input[type=text] {
     padding: 50px;
   }
 
-  #booksNav, #suppliesNav {
+  .navOptions {
     font-size: .75em;
     max-width: 80vw;
   }
